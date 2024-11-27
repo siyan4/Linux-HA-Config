@@ -1,0 +1,21 @@
+﻿名称,状况,状态,置备的空间,已用空间,主机 CPU,主机内存
+Bank(01)-PingAn-Apps_OS(平安银行),已打开电源,正常,2.02 TB,169.7 GB,119 MHz,8.22 GB
+Bank(02)-PSBC-Apps_OS(邮政储蓄银行),已打开电源,正常,2.02 TB,167.03 GB,79 MHz,8.22 GB
+Bank(03)-CIB-Apps_OS(兴业银行),已打开电源,正常,2.02 TB,176.86 GB,59 MHz,8.22 GB
+Bank(04)-HFBank-Apps_OS(恒丰银行),已打开电源,正常,2.02 TB,160.4 GB,79 MHz,8.22 GB
+Bank(05)-LSCCB-Apps_OS(乐山市商业银行),已打开电源,正常,2.02 TB,164.43 GB,79 MHz,8.22 GB
+Bank(06)-GWBank-Apps_OS(长城华西银行),已打开电源,正常,2.02 TB,161.89 GB,39 MHz,8.21 GB
+Bank(07)-CBHB-Apps_OS(渤海银行),已打开电源,正常,2.02 TB,159.52 GB,79 MHz,8.21 GB
+Bank(08)-ExImBank-Apps_OS(中国进出口银行),已打开电源,正常,2.02 TB,169.9 GB,59 MHz,8.2 GB
+Bank(09)-BankofDL-Apps_OS(大连银行),已打开电源,正常,2.02 TB,177.78 GB,179 MHz,8.26 GB
+Bank(10)-CEBBank-Apps_OS(光大银行),已打开电源,正常,2.02 TB,183.5 GB,139 MHz,8.26 GB
+Bank(11)-CMBC-Apps_OS(民生银行),已打开电源,正常,2.02 TB,171.7 GB,59 MHz,8.2 GB
+Bank(12)-CiticBank-Apps_OS(中信银行),已打开电源,正常,2.02 TB,192.18 GB,359 MHz,8.21 GB
+Bank(13)-YBCCB-Apps_OS(宜宾商业银行),已打开电源,正常,2.02 TB,189.16 GB,139 MHz,8.22 GB
+Bank(14)-BOSC-Apps_OS(上海银行),已打开电源,正常,2.02 TB,172.01 GB,59 MHz,8.22 GB
+Bank(15)-ABChina-Apps_OS(农业银行),已打开电源,正常,4.02 TB,171.71 GB,39 MHz,8.19 GB
+Bank(16)-ICBC-Apps_OS(工商银行),已打开电源,正常,4.02 TB,177.25 GB,219 MHz,8.21 GB
+Bank(17)-CCB-Apps_OS(建设银行),已打开电源,正常,4.02 TB,170.04 GB,119 MHz,5.56 GB
+Bank(18)-SPDB-Apps_OS(上海浦东发展银行),已打开电源,正常,2.02 TB,163.68 GB,59 MHz,8.22 GB
+Bank(19)-BOC-Apps_OS(中国银行),已打开电源,正常,2.02 TB,179.79 GB,319 MHz,8.26 GB
+Bank(20)-CMBChina-Apps_OS(招商银行),已打开电源,正常,2.02 TB,171.36 GB,39 MHz,8.21 GB

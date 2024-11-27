@@ -1,0 +1,4170 @@
+zabbix_export:
+  version: '7.0'
+  media_types:
+    - name: 'Email [chensiyan@fhtdchem.com]'
+      type: EMAIL
+      smtp_server: smtp.exmail.qq.com
+      smtp_port: '465'
+      smtp_helo: fhtdchem.com
+      smtp_email: chensiyan@fhtdchem.com
+      smtp_security: SSL_OR_TLS
+      smtp_verify_host: 'YES'
+      smtp_verify_peer: 'YES'
+      smtp_authentication: PASSWORD
+      username: chensiyan@fhtdchem.com
+      password: 0sane@FHTD
+      message_format: TEXT
+      description: |
+        信息安全专员邮箱
+        Information Security Officer Email
+        工号：012621    ||    姓名：陈思言
+      message_templates:
+        - event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: '[FHTD-Zabbix] Problem: {EVENT.NAME}'
+          message: |
+            Problem started at {EVENT.TIME} on {EVENT.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Operational data: {EVENT.OPDATA}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: RECOVERY
+          subject: '[FHTD-Zabbix] Resolved in {EVENT.DURATION}: {EVENT.NAME}'
+          message: |
+            Problem has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Problem duration: {EVENT.DURATION}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: UPDATE
+          subject: '[FHTD-Zabbix] Updated problem in {EVENT.AGE}: {EVENT.NAME}'
+          message: |
+            {USER.FULLNAME} {EVENT.UPDATE.ACTION} problem at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            {EVENT.UPDATE.MESSAGE}
+            
+            Current problem status is {EVENT.STATUS}, age is {EVENT.AGE}, acknowledged: {EVENT.ACK.STATUS}.
+        - event_source: DISCOVERY
+          operation_mode: PROBLEM
+          subject: '[FHTD-Zabbix] Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}'
+          message: |
+            Discovery rule: {DISCOVERY.RULE.NAME}
+            
+            Device IP: {DISCOVERY.DEVICE.IPADDRESS}
+            Device DNS: {DISCOVERY.DEVICE.DNS}
+            Device status: {DISCOVERY.DEVICE.STATUS}
+            Device uptime: {DISCOVERY.DEVICE.UPTIME}
+            
+            Device service name: {DISCOVERY.SERVICE.NAME}
+            Device service port: {DISCOVERY.SERVICE.PORT}
+            Device service status: {DISCOVERY.SERVICE.STATUS}
+            Device service uptime: {DISCOVERY.SERVICE.UPTIME}
+        - event_source: AUTOREGISTRATION
+          operation_mode: PROBLEM
+          subject: '[FHTD-Zabbix] Autoregistration: {HOST.HOST}'
+          message: |
+            Host name: {HOST.HOST}
+            Host IP: {HOST.IP}
+            Agent port: {HOST.PORT}
+    - name: 'Email [it@fhtdchem.com]'
+      type: EMAIL
+      smtp_server: smtp.exmail.qq.com
+      smtp_port: '465'
+      smtp_helo: fhtdchem.com
+      smtp_email: it@fhtdchem.com
+      smtp_security: SSL_OR_TLS
+      smtp_verify_host: 'YES'
+      smtp_verify_peer: 'YES'
+      smtp_authentication: PASSWORD
+      username: it@fhtdchem.com
+      password: uDgRA9F5JzdgRMND
+      message_format: TEXT
+      description: |
+        福华通达 IT 专员邮箱
+        FHTDCHEM IT Specialist Email
+      message_templates:
+        - event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: '[FHTD-Zabbix] Problem: {EVENT.NAME}'
+          message: |
+            Problem started at {EVENT.TIME} on {EVENT.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Operational data: {EVENT.OPDATA}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: RECOVERY
+          subject: '[FHTD-Zabbix] Resolved in {EVENT.DURATION}: {EVENT.NAME}'
+          message: |
+            Problem has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Problem duration: {EVENT.DURATION}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: UPDATE
+          subject: '[FHTD-Zabbix] Updated problem in {EVENT.AGE}: {EVENT.NAME}'
+          message: |
+            {USER.FULLNAME} {EVENT.UPDATE.ACTION} problem at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            {EVENT.UPDATE.MESSAGE}
+            
+            Current problem status is {EVENT.STATUS}, age is {EVENT.AGE}, acknowledged: {EVENT.ACK.STATUS}.
+        - event_source: DISCOVERY
+          operation_mode: PROBLEM
+          subject: '[FHTD-Zabbix] Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}'
+          message: |
+            Discovery rule: {DISCOVERY.RULE.NAME}
+            
+            Device IP: {DISCOVERY.DEVICE.IPADDRESS}
+            Device DNS: {DISCOVERY.DEVICE.DNS}
+            Device status: {DISCOVERY.DEVICE.STATUS}
+            Device uptime: {DISCOVERY.DEVICE.UPTIME}
+            
+            Device service name: {DISCOVERY.SERVICE.NAME}
+            Device service port: {DISCOVERY.SERVICE.PORT}
+            Device service status: {DISCOVERY.SERVICE.STATUS}
+            Device service uptime: {DISCOVERY.SERVICE.UPTIME}
+        - event_source: AUTOREGISTRATION
+          operation_mode: PROBLEM
+          subject: '[FHTD-Zabbix] Autoregistration: {HOST.HOST}'
+          message: |
+            Host name: {HOST.HOST}
+            Host IP: {HOST.IP}
+            Agent port: {HOST.PORT}
+    - name: 'Email [noc@fuhuagroup.com]'
+      type: EMAIL
+      smtp_server: smtp.exmail.qq.com
+      smtp_port: '465'
+      smtp_helo: fuhuagroup.com
+      smtp_email: noc@fuhuagroup.com
+      smtp_security: SSL_OR_TLS
+      smtp_verify_host: 'YES'
+      smtp_verify_peer: 'YES'
+      smtp_authentication: PASSWORD
+      username: noc@fuhuagroup.com
+      password: _sec2FHG
+      message_format: TEXT
+      description: |
+        网络运行中心
+        Network Operations Center
+      message_templates:
+        - event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: '[FHTD-Zabbix] Problem: {EVENT.NAME}'
+          message: |
+            Problem started at {EVENT.TIME} on {EVENT.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Operational data: {EVENT.OPDATA}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: RECOVERY
+          subject: '[FHTD-Zabbix] Resolved in {EVENT.DURATION}: {EVENT.NAME}'
+          message: |
+            Problem has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Problem duration: {EVENT.DURATION}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: UPDATE
+          subject: '[FHTD-Zabbix] Updated problem in {EVENT.AGE}: {EVENT.NAME}'
+          message: |
+            {USER.FULLNAME} {EVENT.UPDATE.ACTION} problem at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            {EVENT.UPDATE.MESSAGE}
+            
+            Current problem status is {EVENT.STATUS}, age is {EVENT.AGE}, acknowledged: {EVENT.ACK.STATUS}.
+        - event_source: DISCOVERY
+          operation_mode: PROBLEM
+          subject: '[FHTD-Zabbix] Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}'
+          message: |
+            Discovery rule: {DISCOVERY.RULE.NAME}
+            
+            Device IP: {DISCOVERY.DEVICE.IPADDRESS}
+            Device DNS: {DISCOVERY.DEVICE.DNS}
+            Device status: {DISCOVERY.DEVICE.STATUS}
+            Device uptime: {DISCOVERY.DEVICE.UPTIME}
+            
+            Device service name: {DISCOVERY.SERVICE.NAME}
+            Device service port: {DISCOVERY.SERVICE.PORT}
+            Device service status: {DISCOVERY.SERVICE.STATUS}
+            Device service uptime: {DISCOVERY.SERVICE.UPTIME}
+        - event_source: AUTOREGISTRATION
+          operation_mode: PROBLEM
+          subject: '[FHTD-Zabbix] Autoregistration: {HOST.HOST}'
+          message: |
+            Host name: {HOST.HOST}
+            Host IP: {HOST.IP}
+            Agent port: {HOST.PORT}
+    - name: 'Email [soc@fuhuagroup.com]'
+      type: EMAIL
+      smtp_server: smtp.exmail.qq.com
+      smtp_port: '465'
+      smtp_helo: fuhuagroup.com
+      smtp_email: soc@fuhuagroup.com
+      smtp_security: SSL_OR_TLS
+      smtp_verify_host: 'YES'
+      smtp_verify_peer: 'YES'
+      smtp_authentication: PASSWORD
+      username: soc@fuhuagroup.com
+      password: _sec2FHG
+      message_format: TEXT
+      description: |
+        安全运营中心
+        Security Operations Center
+      message_templates:
+        - event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: '[FHTD-Zabbix] Problem: {EVENT.NAME}'
+          message: |
+            Problem started at {EVENT.TIME} on {EVENT.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Operational data: {EVENT.OPDATA}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: RECOVERY
+          subject: '[FHTD-Zabbix] Resolved in {EVENT.DURATION}: {EVENT.NAME}'
+          message: |
+            Problem has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Problem duration: {EVENT.DURATION}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: UPDATE
+          subject: '[FHTD-Zabbix] Updated problem in {EVENT.AGE}: {EVENT.NAME}'
+          message: |
+            {USER.FULLNAME} {EVENT.UPDATE.ACTION} problem at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            {EVENT.UPDATE.MESSAGE}
+            
+            Current problem status is {EVENT.STATUS}, age is {EVENT.AGE}, acknowledged: {EVENT.ACK.STATUS}.
+        - event_source: DISCOVERY
+          operation_mode: PROBLEM
+          subject: '[FHTD-Zabbix] Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}'
+          message: |
+            Discovery rule: {DISCOVERY.RULE.NAME}
+            
+            Device IP: {DISCOVERY.DEVICE.IPADDRESS}
+            Device DNS: {DISCOVERY.DEVICE.DNS}
+            Device status: {DISCOVERY.DEVICE.STATUS}
+            Device uptime: {DISCOVERY.DEVICE.UPTIME}
+            
+            Device service name: {DISCOVERY.SERVICE.NAME}
+            Device service port: {DISCOVERY.SERVICE.PORT}
+            Device service status: {DISCOVERY.SERVICE.STATUS}
+            Device service uptime: {DISCOVERY.SERVICE.UPTIME}
+        - event_source: AUTOREGISTRATION
+          operation_mode: PROBLEM
+          subject: '[FHTD-Zabbix] Autoregistration: {HOST.HOST}'
+          message: |
+            Host name: {HOST.HOST}
+            Host IP: {HOST.IP}
+            Agent port: {HOST.PORT}
+    - name: 'Infocloud Opass [323784:SCC10002:Aa@1234567]'
+      type: WEBHOOK
+      parameters:
+        - name: alert_message
+          value: '{ALERT.MESSAGE}'
+        - name: alert_subject
+          value: '{ALERT.SUBJECT}'
+        - name: emergency_contact_number
+          value: '13222201024'
+        - name: event_date
+          value: '{EVENT.DATE}'
+        - name: event_id
+          value: '{EVENT.ID}'
+        - name: event_nseverity
+          value: '{EVENT.NSEVERITY}'
+        - name: event_opdata
+          value: '{EVENT.OPDATA}'
+        - name: event_recovery_date
+          value: '{EVENT.RECOVERY.DATE}'
+        - name: event_recovery_time
+          value: '{EVENT.RECOVERY.TIME}'
+        - name: event_severity
+          value: '{EVENT.SEVERITY}'
+        - name: event_source
+          value: '{EVENT.SOURCE}'
+        - name: event_status
+          value: '{EVENT.STATUS}'
+        - name: event_tags
+          value: '{EVENT.TAGS}'
+        - name: event_time
+          value: '{EVENT.TIME}'
+        - name: event_update_action
+          value: '{EVENT.UPDATE.ACTION}'
+        - name: event_update_date
+          value: '{EVENT.UPDATE.DATE}'
+        - name: event_update_message
+          value: '{EVENT.UPDATE.MESSAGE}'
+        - name: event_update_status
+          value: '{EVENT.UPDATE.STATUS}'
+        - name: event_update_time
+          value: '{EVENT.UPDATE.TIME}'
+        - name: event_update_user
+          value: '{USER.FULLNAME}'
+        - name: event_value
+          value: '{EVENT.VALUE}'
+        - name: host_ip
+          value: '{HOST.IP}'
+        - name: host_name
+          value: '{HOST.NAME}'
+        - name: opass_account
+          value: SCC10002
+        - name: opass_apiKey
+          value: d7904fe46f270a92b09b6904e3781c9b
+        - name: opass_company_id
+          value: '323784'
+        - name: opass_endpoint
+          value: 'https://opassapi.infocloud.com.cn/message/send'
+        - name: opass_password
+          value: Aa@1234567
+        - name: opass_secretKey
+          value: f32ce0241a59d8cb1e0a01be69b3443ef721529becd710a6e24bd168f419983f
+        - name: opass_send_to_phones
+          value: '13222201024,18583342991,13530357170,13066981021,13981380407'
+        - name: opass_sign_method
+          value: HmacSHA256
+        - name: opass_template_code
+          value: '1050132428020592640'
+        - name: trigger_description
+          value: '{TRIGGER.DESCRIPTION}'
+        - name: trigger_id
+          value: '{TRIGGER.ID}'
+        - name: use_default_message
+          value: 'false'
+        - name: use_emergency_contact
+          value: 'true'
+        - name: zabbix_url
+          value: '{$ZABBIX_URL}'
+      status: DISABLED
+      script: |
+        var SEVERITY_COLORS = [
+            '#97AAB3', // Not classified.
+            '#7499FF', // Information.
+            '#FFC859', // Warning.
+            '#FFA059', // Average.
+            '#E97659', // High.
+            '#E45959', // Disaster.
+            '#009900', // Resolved.
+            '#000000'  // Default.
+        ];
+        
+        try {
+            var params = JSON.parse(value);
+        
+            if (typeof params.opass_endpoint !== 'string' || params.opass_endpoint.trim() === '') {
+                throw 'Cannot get opass_endpoint';
+            }
+            else if (!params.opass_endpoint.startsWith('http')) {
+                throw 'Invalid Infocloud Opass webhook URL: ' + params.opass_endpoint;
+            }
+        
+            params.zabbix_url = (params.zabbix_url.endsWith('/'))
+                ? params.zabbix_url.slice(0, -1) : params.zabbix_url;
+        
+            if ([0, 1, 2, 3, 4].indexOf(parseInt(params.event_source)) === -1) {
+                throw 'Incorrect "event_source" parameter given: "' + params.event_source + '".\nMust be 0-4.';
+            }
+        
+            // Set "use_default_message" to true for non trigger-based events.
+            if (params.event_source !== '0') {
+                params.use_default_message = 'true';
+            }
+        
+            // Check {EVENT.VALUE} for trigger-based and internal events.
+            if (params.event_value !== '0' && params.event_value !== '1'
+                    && (params.event_source === '0' || params.event_source === '3')) {
+                throw 'Incorrect "event_value" parameter given: "' + params.event_value + '".\nMust be 0 or 1.';
+            }
+        
+            // Check {EVENT.UPDATE.STATUS} only for trigger-based events.
+            if (params.event_update_status !== '0' && params.event_update_status !== '1' && params.event_source === '0') {
+                throw 'Incorrect "event_update_status" parameter given: "' + params.event_update_status + '".\nMust be 0 or 1.';
+            }
+        
+            if (params.event_value == 0) {
+                params.event_nseverity = '6';
+            }
+        
+            if (!SEVERITY_COLORS[params.event_nseverity]) {
+                params.event_nseverity = '7';
+            }
+        
+            var request = new HttpRequest(),
+                horizontal_content_list = [],
+                raw_body = {
+                    "phones": params.opass_send_to_phones,                                                // Receiver(s)' phones.
+                    "templateCode": params.opass_template_code,                                           // Opass SMS template code.
+                    "templateParam": '["' +
+                        params.event_severity + '","' +                                                   // Event severity.
+                        params.event_opdata + '","' +                                                     // Event operational data.
+                        params.alert_subject + '","' +                                                    // Alert subject.
+                        ((params.event_value === '1' && params.event_update_status === '0')               // Time type.
+                            ? 'Event time'                                                                // Problem message.
+                            : ((params.event_update_status === '1')
+                                   ? 'Event update time'                                                  // Update message.
+                                   : 'Recovery time'                                                      // Resolved message.
+                              )) + '","' +
+                        ((params.event_value === '1' && params.event_update_status === '0')
+                            ? params.event_time + ' ' + params.event_date                                 // Problem datetime.
+                            : ((params.event_update_status === '1')
+                                   ? params.event_update_time + ' ' + params.event_update_date            // Update datetime.
+                                   : params.event_recovery_time + ' ' + params.event_recovery_date        // Resolved datetime.
+                              )) + '","' +
+                        params.host_name + ' [' + params.host_ip + ']' + '","' +                          // Host name & ip address.
+                        params.event_tags + '","' +                                                       // Event tags.
+                        ((params.event_source === '0')                                                    // Event source: 0=enable.
+                            ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                params.trigger_id + '&eventid=' + params.event_id                         // Zabbix event url
+                            : params.zabbix_url) + '","' +                                                // Zabbix home url
+                        params.emergency_contact_number
+                    + '"]'
+                };
+        
+            request.addHeader('Content-Type: application/json');
+        
+            function queryStringToJSON(url) {
+                // 获取查询字符串部分
+                const queryString = url.split('?')[1];
+            
+                // 如果没有查询字符串，返回空对象
+                if (!queryString) {
+                    return {};
+                }
+        
+                const pairs = queryString.split('&');
+                const result = {};
+        
+                pairs.forEach(function(pair) {
+                    // 使用等号分割键和值，并对它们进行解码
+                    var splitPair = pair.split('=').map(function(item) {
+                        return decodeURIComponent(item);
+                    });
+        
+                    var key = splitPair[0];
+                    var value = splitPair[1];
+        
+                    // 如果键已经存在，转换为数组或追加到现有数组
+                    if (result[key]) {
+                        if (Array.isArray(result[key])) {
+                            result[key].push(value);
+                        } else {
+                            result[key] = [result[key], value];
+                        }
+                    } else {
+                        // 如果键不存在，直接赋值
+                        result[key] = value;
+                    }
+                });
+        
+                return result;
+            }
+            
+            const zabbix_event_url = (params.event_source === '0')                                        // Event source: 0=enable.
+                                         ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                             params.trigger_id + '&eventid=' + params.event_id            // Zabbix event url
+                                         : params.zabbix_url;                                             // Zabbix home url
+        
+            var post_param = JSON.stringify(raw_body);                                                    // post 中的参数
+            var queryParam = queryStringToJSON(zabbix_event_url);                                         // get 中的参数
+        
+            try{
+                var json = JSON.parse(post_param);
+                post_param = json;
+            }catch(err){
+                console.error("非标准json字符串");
+            }
+        
+            //将post和get合并，并且移除sign参数
+            for (var i in queryParam) {
+                if (queryParam[i].key == "sign" || queryParam[i].key == undefined) {
+                    continue;
+                }
+                post_param[queryParam[i].key] = queryParam[i].value;
+            }
+        
+            //获取header相关参数
+            post_param["x-sign-method"] = params.opass_sign_method;
+            post_param["x-api-key"] = params.opass_apiKey;
+        //    post_param["x-nonce"] = 9314187503;
+            post_param["x-nonce"] = randomNum(10);
+        //    post_param["x-timestamp"] = 1725359098558;
+            post_param["x-timestamp"] = (new Date()).getTime().toString();
+            request.addHeader('x-api-key: ' + post_param["x-api-key"]);
+            request.addHeader('x-sign-method: ' + post_param["x-sign-method"]);
+            request.addHeader('x-nonce: ' + post_param["x-nonce"]);
+            request.addHeader('x-timestamp: ' + post_param["x-timestamp"]);
+        
+            Zabbix.log(4, 'Before sort: ' + JSON.stringify(post_param));
+            //排序
+            post_param = objSort(post_param);
+            Zabbix.log(4, 'After sort: ' + JSON.stringify(post_param));
+        
+            //拼接
+            var kv=[];
+            for(var key in post_param){
+                kv.push(key+'='+post_param[key]);
+            }
+            var str = kv.join('&');
+            Zabbix.log(4, str);
+        
+            //生成签名
+            var sha1Str = hmac('sha256', params.opass_secretKey, str);
+            Zabbix.log(4, 'hmac: ' + sha1Str);
+        //    Zabbix.log(4, 'real: c4a47524447b30d7faace67da4cd9fbdedf2c544f5d5626a0c42bec70143d3f0');
+        
+            request.addHeader('x-sign: ' + sha1Str);
+        
+            //随机数生成
+            function randomNum(n) {
+                var num = "";
+                for(var i=0;i<n;i++){
+                    num+=Math.floor(Math.random()*10);
+                }
+                return num;
+            }
+        
+            //排序方法
+            function objSort(obj)
+            {
+                var keys = Object.keys(obj).sort();
+                var arr = {};
+                for (var i in keys) {
+                    arr[keys[i]] = obj[keys[i]];
+                }
+                return arr;
+            }
+        
+            if (typeof params.HTTPProxy === 'string' && params.HTTPProxy !== '') {
+                request.setProxy(params.HTTPProxy);
+            }
+        
+            Zabbix.log(4, '[ Infocloud Opass Webhook ] JSON: ' + JSON.stringify(raw_body));
+        
+            var response = request.post(params.opass_endpoint, JSON.stringify(raw_body));
+        
+            Zabbix.log(4, '[ Infocloud Opass Webhook ] Response: ' + response);
+        
+            if (JSON.parse(response).code === 200) {
+                return 'OK';
+            }
+            else {
+                Zabbix.log(4, '[ Infocloud Opass Webhook ] FAILED with response: ' + response);
+                throw response;
+            }
+        }
+        catch (error) {
+            Zabbix.log(3, '[ Infocloud Opass Webhook ] ERROR: ' + error);
+            throw 'Sending failed: ' + error;
+        }
+      message_templates:
+        - event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: 'Problem: {EVENT.NAME}'
+          message: |
+            Problem started at {EVENT.TIME} on {EVENT.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Operational data: {EVENT.OPDATA}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: RECOVERY
+          subject: 'Resolved: {EVENT.NAME}'
+          message: |
+            Problem has been resolved in {EVENT.DURATION} at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: UPDATE
+          subject: 'Updated problem: {EVENT.NAME}'
+          message: |
+            {USER.FULLNAME} {EVENT.UPDATE.ACTION} problem at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            {EVENT.UPDATE.MESSAGE}
+            
+            Current problem status is {EVENT.STATUS}, acknowledged: {EVENT.ACK.STATUS}.
+        - event_source: DISCOVERY
+          operation_mode: PROBLEM
+          subject: 'Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}'
+          message: |
+            Discovery rule: {DISCOVERY.RULE.NAME}
+            
+            Device IP: {DISCOVERY.DEVICE.IPADDRESS}
+            Device DNS: {DISCOVERY.DEVICE.DNS}
+            Device status: {DISCOVERY.DEVICE.STATUS}
+            Device uptime: {DISCOVERY.DEVICE.UPTIME}
+            
+            Device service name: {DISCOVERY.SERVICE.NAME}
+            Device service port: {DISCOVERY.SERVICE.PORT}
+            Device service status: {DISCOVERY.SERVICE.STATUS}
+            Device service uptime: {DISCOVERY.SERVICE.UPTIME}
+        - event_source: AUTOREGISTRATION
+          operation_mode: PROBLEM
+          subject: 'Autoregistration: {HOST.HOST}'
+          message: |
+            Host name: {HOST.HOST}
+            Host IP: {HOST.IP}
+            Agent port: {HOST.PORT}
+        - event_source: SERVICE
+          operation_mode: PROBLEM
+          subject: 'Service "{SERVICE.NAME}" problem: {EVENT.NAME}'
+          message: |
+            Service problem started at {EVENT.TIME} on {EVENT.DATE}
+            Service problem name: {EVENT.NAME}
+            Service: {SERVICE.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+        - event_source: SERVICE
+          operation_mode: RECOVERY
+          subject: 'Service "{SERVICE.NAME}" resolved in {EVENT.DURATION}: {EVENT.NAME}'
+          message: |
+            Service "{SERVICE.NAME}" has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Problem duration: {EVENT.DURATION}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+        - event_source: SERVICE
+          operation_mode: UPDATE
+          subject: 'Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} in {EVENT.AGE}'
+          message: |
+            Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            Current problem age is {EVENT.AGE}.
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+    - name: 'Infocloud Opass [323784:SCC10002:Aa@1234567] Cloned'
+      type: WEBHOOK
+      parameters:
+        - name: alert_message
+          value: '{ALERT.MESSAGE}'
+        - name: alert_subject
+          value: '{ALERT.SUBJECT}'
+        - name: emergency_contact_number
+          value: '13222201024'
+        - name: event_date
+          value: '{EVENT.DATE}'
+        - name: event_id
+          value: '{EVENT.ID}'
+        - name: event_nseverity
+          value: '{EVENT.NSEVERITY}'
+        - name: event_opdata
+          value: '{EVENT.OPDATA}'
+        - name: event_recovery_date
+          value: '{EVENT.RECOVERY.DATE}'
+        - name: event_recovery_time
+          value: '{EVENT.RECOVERY.TIME}'
+        - name: event_severity
+          value: '{EVENT.SEVERITY}'
+        - name: event_source
+          value: '{EVENT.SOURCE}'
+        - name: event_status
+          value: '{EVENT.STATUS}'
+        - name: event_tags
+          value: '{EVENT.TAGS}'
+        - name: event_time
+          value: '{EVENT.TIME}'
+        - name: event_update_action
+          value: '{EVENT.UPDATE.ACTION}'
+        - name: event_update_date
+          value: '{EVENT.UPDATE.DATE}'
+        - name: event_update_message
+          value: '{EVENT.UPDATE.MESSAGE}'
+        - name: event_update_status
+          value: '{EVENT.UPDATE.STATUS}'
+        - name: event_update_time
+          value: '{EVENT.UPDATE.TIME}'
+        - name: event_update_user
+          value: '{USER.FULLNAME}'
+        - name: event_value
+          value: '{EVENT.VALUE}'
+        - name: host_ip
+          value: '{HOST.IP}'
+        - name: host_name
+          value: '{HOST.NAME}'
+        - name: opass_account
+          value: SCC10002
+        - name: opass_apiKey
+          value: d7904fe46f270a92b09b6904e3781c9b
+        - name: opass_company_id
+          value: '323784'
+        - name: opass_endpoint
+          value: 'https://opassapi.infocloud.com.cn/message/send'
+        - name: opass_password
+          value: Aa@1234567
+        - name: opass_secretKey
+          value: f32ce0241a59d8cb1e0a01be69b3443ef721529becd710a6e24bd168f419983f
+        - name: opass_send_to_phones
+          value: '13222201024,18583342991,13530357170,13066981021,13981380407'
+        - name: opass_sign_method
+          value: HmacSHA256
+        - name: opass_template_code
+          value: '1050132428020592640'
+        - name: trigger_description
+          value: '{TRIGGER.DESCRIPTION}'
+        - name: trigger_id
+          value: '{TRIGGER.ID}'
+        - name: use_default_message
+          value: 'false'
+        - name: use_emergency_contact
+          value: 'true'
+        - name: zabbix_url
+          value: '{$ZABBIX_URL}'
+      status: DISABLED
+      script: |
+        var SEVERITY_COLORS = [
+            '#97AAB3', // Not classified.
+            '#7499FF', // Information.
+            '#FFC859', // Warning.
+            '#FFA059', // Average.
+            '#E97659', // High.
+            '#E45959', // Disaster.
+            '#009900', // Resolved.
+            '#000000'  // Default.
+        ];
+        
+        try {
+            var params = JSON.parse(value);
+        
+            if (typeof params.opass_endpoint !== 'string' || params.opass_endpoint.trim() === '') {
+                throw 'Cannot get opass_endpoint';
+            }
+            else if (!params.opass_endpoint.startsWith('http')) {
+                throw 'Invalid Infocloud Opass webhook URL: ' + params.opass_endpoint;
+            }
+        
+            params.zabbix_url = (params.zabbix_url.endsWith('/'))
+                ? params.zabbix_url.slice(0, -1) : params.zabbix_url;
+        
+            if ([0, 1, 2, 3, 4].indexOf(parseInt(params.event_source)) === -1) {
+                throw 'Incorrect "event_source" parameter given: "' + params.event_source + '".\nMust be 0-4.';
+            }
+        
+            // Set "use_default_message" to true for non trigger-based events.
+            if (params.event_source !== '0') {
+                params.use_default_message = 'true';
+            }
+        
+            // Check {EVENT.VALUE} for trigger-based and internal events.
+            if (params.event_value !== '0' && params.event_value !== '1'
+                    && (params.event_source === '0' || params.event_source === '3')) {
+                throw 'Incorrect "event_value" parameter given: "' + params.event_value + '".\nMust be 0 or 1.';
+            }
+        
+            // Check {EVENT.UPDATE.STATUS} only for trigger-based events.
+            if (params.event_update_status !== '0' && params.event_update_status !== '1' && params.event_source === '0') {
+                throw 'Incorrect "event_update_status" parameter given: "' + params.event_update_status + '".\nMust be 0 or 1.';
+            }
+        
+            if (params.event_value == 0) {
+                params.event_nseverity = '6';
+            }
+        
+            if (!SEVERITY_COLORS[params.event_nseverity]) {
+                params.event_nseverity = '7';
+            }
+        
+            var request = new HttpRequest(),
+                horizontal_content_list = [],
+                raw_body = {
+                    "phones": params.opass_send_to_phones,                                                // Receiver(s)' phones.
+                    "templateCode": params.opass_template_code,                                           // Opass SMS template code.
+                    "templateParam": '["' +
+                        params.event_severity + '","' +                                                   // Event severity.
+                        params.event_opdata + '","' +                                                     // Event operational data.
+                        params.alert_subject + '","' +                                                    // Alert subject.
+                        ((params.event_value === '1' && params.event_update_status === '0')               // Time type.
+                            ? 'Event time'                                                                // Problem message.
+                            : ((params.event_update_status === '1')
+                                   ? 'Event update time'                                                  // Update message.
+                                   : 'Recovery time'                                                      // Resolved message.
+                              )) + '","' +
+                        ((params.event_value === '1' && params.event_update_status === '0')
+                            ? params.event_time + ' ' + params.event_date                                 // Problem datetime.
+                            : ((params.event_update_status === '1')
+                                   ? params.event_update_time + ' ' + params.event_update_date            // Update datetime.
+                                   : params.event_recovery_time + ' ' + params.event_recovery_date        // Resolved datetime.
+                              )) + '","' +
+                        params.host_name + ' [' + params.host_ip + ']' + '","' +                          // Host name & ip address.
+                        params.event_tags + '","' +                                                       // Event tags.
+                        ((params.event_source === '0')                                                    // Event source: 0=enable.
+                            ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                params.trigger_id + '&eventid=' + params.event_id                         // Zabbix event url
+                            : params.zabbix_url) + '","' +                                                // Zabbix home url
+                        params.emergency_contact_number
+                    + '"]'
+                };
+        
+            request.addHeader('Content-Type: application/json');
+        
+            function queryStringToJSON(url) {
+                // 获取查询字符串部分
+                const queryString = url.split('?')[1];
+            
+                // 如果没有查询字符串，返回空对象
+                if (!queryString) {
+                    return {};
+                }
+        
+                const pairs = queryString.split('&');
+                const result = {};
+        
+                pairs.forEach(function(pair) {
+                    // 使用等号分割键和值，并对它们进行解码
+                    var splitPair = pair.split('=').map(function(item) {
+                        return decodeURIComponent(item);
+                    });
+        
+                    var key = splitPair[0];
+                    var value = splitPair[1];
+        
+                    // 如果键已经存在，转换为数组或追加到现有数组
+                    if (result[key]) {
+                        if (Array.isArray(result[key])) {
+                            result[key].push(value);
+                        } else {
+                            result[key] = [result[key], value];
+                        }
+                    } else {
+                        // 如果键不存在，直接赋值
+                        result[key] = value;
+                    }
+                });
+        
+                return result;
+            }
+            
+            const zabbix_event_url = (params.event_source === '0')                                        // Event source: 0=enable.
+                                         ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                             params.trigger_id + '&eventid=' + params.event_id            // Zabbix event url
+                                         : params.zabbix_url;                                             // Zabbix home url
+        
+            var post_param = JSON.stringify(raw_body);                                                    // post 中的参数
+            var queryParam = queryStringToJSON(zabbix_event_url);                                         // get 中的参数
+        
+            try{
+                var json = JSON.parse(post_param);
+                post_param = json;
+            }catch(err){
+                console.error("非标准json字符串");
+            }
+        
+            //将post和get合并，并且移除sign参数
+            for (var i in queryParam) {
+                if (queryParam[i].key == "sign" || queryParam[i].key == undefined) {
+                    continue;
+                }
+                post_param[queryParam[i].key] = queryParam[i].value;
+            }
+        
+            //获取header相关参数
+            post_param["x-sign-method"] = params.opass_sign_method;
+            post_param["x-api-key"] = params.opass_apiKey;
+        //    post_param["x-nonce"] = 9314187503;
+            post_param["x-nonce"] = randomNum(10);
+        //    post_param["x-timestamp"] = 1725359098558;
+            post_param["x-timestamp"] = (new Date()).getTime().toString();
+            request.addHeader('x-api-key: ' + post_param["x-api-key"]);
+            request.addHeader('x-sign-method: ' + post_param["x-sign-method"]);
+            request.addHeader('x-nonce: ' + post_param["x-nonce"]);
+            request.addHeader('x-timestamp: ' + post_param["x-timestamp"]);
+        
+            Zabbix.log(4, 'Before sort: ' + JSON.stringify(post_param));
+            //排序
+            post_param = objSort(post_param);
+            Zabbix.log(4, 'After sort: ' + JSON.stringify(post_param));
+        
+            //拼接
+            var kv=[];
+            for(var key in post_param){
+                kv.push(key+'='+post_param[key]);
+            }
+            var str = kv.join('&');
+            Zabbix.log(4, str);
+        
+            //生成签名
+            var sha1Str = hmac('sha256', params.opass_secretKey, str);
+            Zabbix.log(4, 'hmac: ' + sha1Str);
+        //    Zabbix.log(4, 'real: c4a47524447b30d7faace67da4cd9fbdedf2c544f5d5626a0c42bec70143d3f0');
+        
+            request.addHeader('x-sign: ' + sha1Str);
+        
+            //随机数生成
+            function randomNum(n) {
+                var num = "";
+                for(var i=0;i<n;i++){
+                    num+=Math.floor(Math.random()*10);
+                }
+                return num;
+            }
+        
+            //排序方法
+            function objSort(obj)
+            {
+                var keys = Object.keys(obj).sort();
+                var arr = {};
+                for (var i in keys) {
+                    arr[keys[i]] = obj[keys[i]];
+                }
+                return arr;
+            }
+        
+            if (typeof params.HTTPProxy === 'string' && params.HTTPProxy !== '') {
+                request.setProxy(params.HTTPProxy);
+            }
+        
+            Zabbix.log(4, '[ Infocloud Opass Webhook ] JSON: ' + JSON.stringify(raw_body));
+        
+            var response = request.post(params.opass_endpoint, JSON.stringify(raw_body));
+        
+            Zabbix.log(4, '[ Infocloud Opass Webhook ] Response: ' + response);
+        
+            if (JSON.parse(response).code === 200) {
+                return 'OK';
+            }
+            else {
+                Zabbix.log(4, '[ Infocloud Opass Webhook ] FAILED with response: ' + response);
+                throw response;
+            }
+        }
+        catch (error) {
+            Zabbix.log(3, '[ Infocloud Opass Webhook ] ERROR: ' + error);
+            throw 'Sending failed: ' + error;
+        }
+      message_templates:
+        - event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: 'Problem: {EVENT.NAME}'
+          message: |
+            Problem started at {EVENT.TIME} on {EVENT.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Operational data: {EVENT.OPDATA}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: RECOVERY
+          subject: 'Resolved: {EVENT.NAME}'
+          message: |
+            Problem has been resolved in {EVENT.DURATION} at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: UPDATE
+          subject: 'Updated problem: {EVENT.NAME}'
+          message: |
+            {USER.FULLNAME} {EVENT.UPDATE.ACTION} problem at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            {EVENT.UPDATE.MESSAGE}
+            
+            Current problem status is {EVENT.STATUS}, acknowledged: {EVENT.ACK.STATUS}.
+        - event_source: DISCOVERY
+          operation_mode: PROBLEM
+          subject: 'Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}'
+          message: |
+            Discovery rule: {DISCOVERY.RULE.NAME}
+            
+            Device IP: {DISCOVERY.DEVICE.IPADDRESS}
+            Device DNS: {DISCOVERY.DEVICE.DNS}
+            Device status: {DISCOVERY.DEVICE.STATUS}
+            Device uptime: {DISCOVERY.DEVICE.UPTIME}
+            
+            Device service name: {DISCOVERY.SERVICE.NAME}
+            Device service port: {DISCOVERY.SERVICE.PORT}
+            Device service status: {DISCOVERY.SERVICE.STATUS}
+            Device service uptime: {DISCOVERY.SERVICE.UPTIME}
+        - event_source: AUTOREGISTRATION
+          operation_mode: PROBLEM
+          subject: 'Autoregistration: {HOST.HOST}'
+          message: |
+            Host name: {HOST.HOST}
+            Host IP: {HOST.IP}
+            Agent port: {HOST.PORT}
+        - event_source: SERVICE
+          operation_mode: PROBLEM
+          subject: 'Service "{SERVICE.NAME}" problem: {EVENT.NAME}'
+          message: |
+            Service problem started at {EVENT.TIME} on {EVENT.DATE}
+            Service problem name: {EVENT.NAME}
+            Service: {SERVICE.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+        - event_source: SERVICE
+          operation_mode: RECOVERY
+          subject: 'Service "{SERVICE.NAME}" resolved in {EVENT.DURATION}: {EVENT.NAME}'
+          message: |
+            Service "{SERVICE.NAME}" has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Problem duration: {EVENT.DURATION}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+        - event_source: SERVICE
+          operation_mode: UPDATE
+          subject: 'Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} in {EVENT.AGE}'
+          message: |
+            Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            Current problem age is {EVENT.AGE}.
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+    - name: 'Infocloud Opass [323784:SCC10002:Aa@1234567] ITS'
+      type: WEBHOOK
+      parameters:
+        - name: alert_message
+          value: '{ALERT.MESSAGE}'
+        - name: alert_subject
+          value: '{ALERT.SUBJECT}'
+        - name: emergency_contact_number
+          value: '13222201024'
+        - name: event_date
+          value: '{EVENT.DATE}'
+        - name: event_id
+          value: '{EVENT.ID}'
+        - name: event_nseverity
+          value: '{EVENT.NSEVERITY}'
+        - name: event_opdata
+          value: '{EVENT.OPDATA}'
+        - name: event_recovery_date
+          value: '{EVENT.RECOVERY.DATE}'
+        - name: event_recovery_time
+          value: '{EVENT.RECOVERY.TIME}'
+        - name: event_severity
+          value: '{EVENT.SEVERITY}'
+        - name: event_source
+          value: '{EVENT.SOURCE}'
+        - name: event_status
+          value: '{EVENT.STATUS}'
+        - name: event_tags
+          value: '{EVENT.TAGS}'
+        - name: event_time
+          value: '{EVENT.TIME}'
+        - name: event_update_action
+          value: '{EVENT.UPDATE.ACTION}'
+        - name: event_update_date
+          value: '{EVENT.UPDATE.DATE}'
+        - name: event_update_message
+          value: '{EVENT.UPDATE.MESSAGE}'
+        - name: event_update_status
+          value: '{EVENT.UPDATE.STATUS}'
+        - name: event_update_time
+          value: '{EVENT.UPDATE.TIME}'
+        - name: event_update_user
+          value: '{USER.FULLNAME}'
+        - name: event_value
+          value: '{EVENT.VALUE}'
+        - name: host_ip
+          value: '{HOST.IP}'
+        - name: host_name
+          value: '{HOST.NAME}'
+        - name: opass_account
+          value: SCC10002
+        - name: opass_apiKey
+          value: d7904fe46f270a92b09b6904e3781c9b
+        - name: opass_company_id
+          value: '323784'
+        - name: opass_endpoint
+          value: 'https://opassapi.infocloud.com.cn/message/send'
+        - name: opass_password
+          value: Aa@1234567
+        - name: opass_secretKey
+          value: f32ce0241a59d8cb1e0a01be69b3443ef721529becd710a6e24bd168f419983f
+        - name: opass_send_to_phones
+          value: '13222201024,18583342991'
+        - name: opass_sign_method
+          value: HmacSHA256
+        - name: opass_template_code
+          value: '1050132428020592640'
+        - name: trigger_description
+          value: '{TRIGGER.DESCRIPTION}'
+        - name: trigger_id
+          value: '{TRIGGER.ID}'
+        - name: use_default_message
+          value: 'false'
+        - name: use_emergency_contact
+          value: 'true'
+        - name: zabbix_url
+          value: '{$ZABBIX_URL}'
+      script: |
+        var SEVERITY_COLORS = [
+            '#97AAB3', // Not classified.
+            '#7499FF', // Information.
+            '#FFC859', // Warning.
+            '#FFA059', // Average.
+            '#E97659', // High.
+            '#E45959', // Disaster.
+            '#009900', // Resolved.
+            '#000000'  // Default.
+        ];
+        
+        try {
+            var params = JSON.parse(value);
+        
+            if (typeof params.opass_endpoint !== 'string' || params.opass_endpoint.trim() === '') {
+                throw 'Cannot get opass_endpoint';
+            }
+            else if (!params.opass_endpoint.startsWith('http')) {
+                throw 'Invalid Infocloud Opass webhook URL: ' + params.opass_endpoint;
+            }
+        
+            params.zabbix_url = (params.zabbix_url.endsWith('/'))
+                ? params.zabbix_url.slice(0, -1) : params.zabbix_url;
+        
+            if ([0, 1, 2, 3, 4].indexOf(parseInt(params.event_source)) === -1) {
+                throw 'Incorrect "event_source" parameter given: "' + params.event_source + '".\nMust be 0-4.';
+            }
+        
+            // Set "use_default_message" to true for non trigger-based events.
+            if (params.event_source !== '0') {
+                params.use_default_message = 'true';
+            }
+        
+            // Check {EVENT.VALUE} for trigger-based and internal events.
+            if (params.event_value !== '0' && params.event_value !== '1'
+                    && (params.event_source === '0' || params.event_source === '3')) {
+                throw 'Incorrect "event_value" parameter given: "' + params.event_value + '".\nMust be 0 or 1.';
+            }
+        
+            // Check {EVENT.UPDATE.STATUS} only for trigger-based events.
+            if (params.event_update_status !== '0' && params.event_update_status !== '1' && params.event_source === '0') {
+                throw 'Incorrect "event_update_status" parameter given: "' + params.event_update_status + '".\nMust be 0 or 1.';
+            }
+        
+            if (params.event_value == 0) {
+                params.event_nseverity = '6';
+            }
+        
+            if (!SEVERITY_COLORS[params.event_nseverity]) {
+                params.event_nseverity = '7';
+            }
+        
+            var request = new HttpRequest(),
+                horizontal_content_list = [],
+                raw_body = {
+                    "phones": params.opass_send_to_phones,                                                // Receiver(s)' phones.
+                    "templateCode": params.opass_template_code,                                           // Opass SMS template code.
+                    "templateParam": '["' +
+                        params.event_severity + '","' +                                                   // Event severity.
+                        params.event_opdata + '","' +                                                     // Event operational data.
+                        params.alert_subject + '","' +                                                    // Alert subject.
+                        ((params.event_value === '1' && params.event_update_status === '0')               // Time type.
+                            ? 'Event time'                                                                // Problem message.
+                            : ((params.event_update_status === '1')
+                                   ? 'Event update time'                                                  // Update message.
+                                   : 'Recovery time'                                                      // Resolved message.
+                              )) + '","' +
+                        ((params.event_value === '1' && params.event_update_status === '0')
+                            ? params.event_time + ' ' + params.event_date                                 // Problem datetime.
+                            : ((params.event_update_status === '1')
+                                   ? params.event_update_time + ' ' + params.event_update_date            // Update datetime.
+                                   : params.event_recovery_time + ' ' + params.event_recovery_date        // Resolved datetime.
+                              )) + '","' +
+                        params.host_name + ' [' + params.host_ip + ']' + '","' +                          // Host name & ip address.
+                        params.event_tags + '","' +                                                       // Event tags.
+                        ((params.event_source === '0')                                                    // Event source: 0=enable.
+                            ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                params.trigger_id + '&eventid=' + params.event_id                         // Zabbix event url
+                            : params.zabbix_url) + '","' +                                                // Zabbix home url
+                        params.emergency_contact_number
+                    + '"]'
+                };
+        
+            request.addHeader('Content-Type: application/json');
+        
+            function queryStringToJSON(url) {
+                // 获取查询字符串部分
+                const queryString = url.split('?')[1];
+            
+                // 如果没有查询字符串，返回空对象
+                if (!queryString) {
+                    return {};
+                }
+        
+                const pairs = queryString.split('&');
+                const result = {};
+        
+                pairs.forEach(function(pair) {
+                    // 使用等号分割键和值，并对它们进行解码
+                    var splitPair = pair.split('=').map(function(item) {
+                        return decodeURIComponent(item);
+                    });
+        
+                    var key = splitPair[0];
+                    var value = splitPair[1];
+        
+                    // 如果键已经存在，转换为数组或追加到现有数组
+                    if (result[key]) {
+                        if (Array.isArray(result[key])) {
+                            result[key].push(value);
+                        } else {
+                            result[key] = [result[key], value];
+                        }
+                    } else {
+                        // 如果键不存在，直接赋值
+                        result[key] = value;
+                    }
+                });
+        
+                return result;
+            }
+            
+            const zabbix_event_url = (params.event_source === '0')                                        // Event source: 0=enable.
+                                         ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                             params.trigger_id + '&eventid=' + params.event_id            // Zabbix event url
+                                         : params.zabbix_url;                                             // Zabbix home url
+        
+            var post_param = JSON.stringify(raw_body);                                                    // post 中的参数
+            var queryParam = queryStringToJSON(zabbix_event_url);                                         // get 中的参数
+        
+            try{
+                var json = JSON.parse(post_param);
+                post_param = json;
+            }catch(err){
+                console.error("非标准json字符串");
+            }
+        
+            //将post和get合并，并且移除sign参数
+            for (var i in queryParam) {
+                if (queryParam[i].key == "sign" || queryParam[i].key == undefined) {
+                    continue;
+                }
+                post_param[queryParam[i].key] = queryParam[i].value;
+            }
+        
+            //获取header相关参数
+            post_param["x-sign-method"] = params.opass_sign_method;
+            post_param["x-api-key"] = params.opass_apiKey;
+        //    post_param["x-nonce"] = 9314187503;
+            post_param["x-nonce"] = randomNum(10);
+        //    post_param["x-timestamp"] = 1725359098558;
+            post_param["x-timestamp"] = (new Date()).getTime().toString();
+            request.addHeader('x-api-key: ' + post_param["x-api-key"]);
+            request.addHeader('x-sign-method: ' + post_param["x-sign-method"]);
+            request.addHeader('x-nonce: ' + post_param["x-nonce"]);
+            request.addHeader('x-timestamp: ' + post_param["x-timestamp"]);
+        
+            Zabbix.log(4, 'Before sort: ' + JSON.stringify(post_param));
+            //排序
+            post_param = objSort(post_param);
+            Zabbix.log(4, 'After sort: ' + JSON.stringify(post_param));
+        
+            //拼接
+            var kv=[];
+            for(var key in post_param){
+                kv.push(key+'='+post_param[key]);
+            }
+            var str = kv.join('&');
+            Zabbix.log(4, str);
+        
+            //生成签名
+            var sha1Str = hmac('sha256', params.opass_secretKey, str);
+            Zabbix.log(4, 'hmac: ' + sha1Str);
+        //    Zabbix.log(4, 'real: c4a47524447b30d7faace67da4cd9fbdedf2c544f5d5626a0c42bec70143d3f0');
+        
+            request.addHeader('x-sign: ' + sha1Str);
+        
+            //随机数生成
+            function randomNum(n) {
+                var num = "";
+                for(var i=0;i<n;i++){
+                    num+=Math.floor(Math.random()*10);
+                }
+                return num;
+            }
+        
+            //排序方法
+            function objSort(obj)
+            {
+                var keys = Object.keys(obj).sort();
+                var arr = {};
+                for (var i in keys) {
+                    arr[keys[i]] = obj[keys[i]];
+                }
+                return arr;
+            }
+        
+            if (typeof params.HTTPProxy === 'string' && params.HTTPProxy !== '') {
+                request.setProxy(params.HTTPProxy);
+            }
+        
+            Zabbix.log(4, '[ Infocloud Opass Webhook ] JSON: ' + JSON.stringify(raw_body));
+        
+            var response = request.post(params.opass_endpoint, JSON.stringify(raw_body));
+        
+            Zabbix.log(4, '[ Infocloud Opass Webhook ] Response: ' + response);
+        
+            if (JSON.parse(response).code === 200) {
+                return 'OK';
+            }
+            else {
+                Zabbix.log(4, '[ Infocloud Opass Webhook ] FAILED with response: ' + response);
+                throw response;
+            }
+        }
+        catch (error) {
+            Zabbix.log(3, '[ Infocloud Opass Webhook ] ERROR: ' + error);
+            throw 'Sending failed: ' + error;
+        }
+      message_templates:
+        - event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: 'Problem: {EVENT.NAME}'
+          message: |
+            Problem started at {EVENT.TIME} on {EVENT.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Operational data: {EVENT.OPDATA}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: RECOVERY
+          subject: 'Resolved: {EVENT.NAME}'
+          message: |
+            Problem has been resolved in {EVENT.DURATION} at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: UPDATE
+          subject: 'Updated problem: {EVENT.NAME}'
+          message: |
+            {USER.FULLNAME} {EVENT.UPDATE.ACTION} problem at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            {EVENT.UPDATE.MESSAGE}
+            
+            Current problem status is {EVENT.STATUS}, acknowledged: {EVENT.ACK.STATUS}.
+        - event_source: DISCOVERY
+          operation_mode: PROBLEM
+          subject: 'Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}'
+          message: |
+            Discovery rule: {DISCOVERY.RULE.NAME}
+            
+            Device IP: {DISCOVERY.DEVICE.IPADDRESS}
+            Device DNS: {DISCOVERY.DEVICE.DNS}
+            Device status: {DISCOVERY.DEVICE.STATUS}
+            Device uptime: {DISCOVERY.DEVICE.UPTIME}
+            
+            Device service name: {DISCOVERY.SERVICE.NAME}
+            Device service port: {DISCOVERY.SERVICE.PORT}
+            Device service status: {DISCOVERY.SERVICE.STATUS}
+            Device service uptime: {DISCOVERY.SERVICE.UPTIME}
+        - event_source: AUTOREGISTRATION
+          operation_mode: PROBLEM
+          subject: 'Autoregistration: {HOST.HOST}'
+          message: |
+            Host name: {HOST.HOST}
+            Host IP: {HOST.IP}
+            Agent port: {HOST.PORT}
+        - event_source: SERVICE
+          operation_mode: PROBLEM
+          subject: 'Service "{SERVICE.NAME}" problem: {EVENT.NAME}'
+          message: |
+            Service problem started at {EVENT.TIME} on {EVENT.DATE}
+            Service problem name: {EVENT.NAME}
+            Service: {SERVICE.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+        - event_source: SERVICE
+          operation_mode: RECOVERY
+          subject: 'Service "{SERVICE.NAME}" resolved in {EVENT.DURATION}: {EVENT.NAME}'
+          message: |
+            Service "{SERVICE.NAME}" has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Problem duration: {EVENT.DURATION}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+        - event_source: SERVICE
+          operation_mode: UPDATE
+          subject: 'Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} in {EVENT.AGE}'
+          message: |
+            Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            Current problem age is {EVENT.AGE}.
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+    - name: 'Infocloud Opass [323784:SCC10002:Aa@1234567] mgr'
+      type: WEBHOOK
+      parameters:
+        - name: alert_message
+          value: '{ALERT.MESSAGE}'
+        - name: alert_subject
+          value: '{ALERT.SUBJECT}'
+        - name: emergency_contact_number
+          value: '13222201024'
+        - name: event_date
+          value: '{EVENT.DATE}'
+        - name: event_id
+          value: '{EVENT.ID}'
+        - name: event_nseverity
+          value: '{EVENT.NSEVERITY}'
+        - name: event_opdata
+          value: '{EVENT.OPDATA}'
+        - name: event_recovery_date
+          value: '{EVENT.RECOVERY.DATE}'
+        - name: event_recovery_time
+          value: '{EVENT.RECOVERY.TIME}'
+        - name: event_severity
+          value: '{EVENT.SEVERITY}'
+        - name: event_source
+          value: '{EVENT.SOURCE}'
+        - name: event_status
+          value: '{EVENT.STATUS}'
+        - name: event_tags
+          value: '{EVENT.TAGS}'
+        - name: event_time
+          value: '{EVENT.TIME}'
+        - name: event_update_action
+          value: '{EVENT.UPDATE.ACTION}'
+        - name: event_update_date
+          value: '{EVENT.UPDATE.DATE}'
+        - name: event_update_message
+          value: '{EVENT.UPDATE.MESSAGE}'
+        - name: event_update_status
+          value: '{EVENT.UPDATE.STATUS}'
+        - name: event_update_time
+          value: '{EVENT.UPDATE.TIME}'
+        - name: event_update_user
+          value: '{USER.FULLNAME}'
+        - name: event_value
+          value: '{EVENT.VALUE}'
+        - name: host_ip
+          value: '{HOST.IP}'
+        - name: host_name
+          value: '{HOST.NAME}'
+        - name: opass_account
+          value: SCC10002
+        - name: opass_apiKey
+          value: d7904fe46f270a92b09b6904e3781c9b
+        - name: opass_company_id
+          value: '323784'
+        - name: opass_endpoint
+          value: 'https://opassapi.infocloud.com.cn/message/send'
+        - name: opass_password
+          value: Aa@1234567
+        - name: opass_secretKey
+          value: f32ce0241a59d8cb1e0a01be69b3443ef721529becd710a6e24bd168f419983f
+        - name: opass_send_to_phones
+          value: '13530357170,13066981021'
+        - name: opass_sign_method
+          value: HmacSHA256
+        - name: opass_template_code
+          value: '1050132428020592640'
+        - name: trigger_description
+          value: '{TRIGGER.DESCRIPTION}'
+        - name: trigger_id
+          value: '{TRIGGER.ID}'
+        - name: use_default_message
+          value: 'false'
+        - name: use_emergency_contact
+          value: 'true'
+        - name: zabbix_url
+          value: '{$ZABBIX_URL}'
+      script: |
+        var SEVERITY_COLORS = [
+            '#97AAB3', // Not classified.
+            '#7499FF', // Information.
+            '#FFC859', // Warning.
+            '#FFA059', // Average.
+            '#E97659', // High.
+            '#E45959', // Disaster.
+            '#009900', // Resolved.
+            '#000000'  // Default.
+        ];
+        
+        try {
+            var params = JSON.parse(value);
+        
+            if (typeof params.opass_endpoint !== 'string' || params.opass_endpoint.trim() === '') {
+                throw 'Cannot get opass_endpoint';
+            }
+            else if (!params.opass_endpoint.startsWith('http')) {
+                throw 'Invalid Infocloud Opass webhook URL: ' + params.opass_endpoint;
+            }
+        
+            params.zabbix_url = (params.zabbix_url.endsWith('/'))
+                ? params.zabbix_url.slice(0, -1) : params.zabbix_url;
+        
+            if ([0, 1, 2, 3, 4].indexOf(parseInt(params.event_source)) === -1) {
+                throw 'Incorrect "event_source" parameter given: "' + params.event_source + '".\nMust be 0-4.';
+            }
+        
+            // Set "use_default_message" to true for non trigger-based events.
+            if (params.event_source !== '0') {
+                params.use_default_message = 'true';
+            }
+        
+            // Check {EVENT.VALUE} for trigger-based and internal events.
+            if (params.event_value !== '0' && params.event_value !== '1'
+                    && (params.event_source === '0' || params.event_source === '3')) {
+                throw 'Incorrect "event_value" parameter given: "' + params.event_value + '".\nMust be 0 or 1.';
+            }
+        
+            // Check {EVENT.UPDATE.STATUS} only for trigger-based events.
+            if (params.event_update_status !== '0' && params.event_update_status !== '1' && params.event_source === '0') {
+                throw 'Incorrect "event_update_status" parameter given: "' + params.event_update_status + '".\nMust be 0 or 1.';
+            }
+        
+            if (params.event_value == 0) {
+                params.event_nseverity = '6';
+            }
+        
+            if (!SEVERITY_COLORS[params.event_nseverity]) {
+                params.event_nseverity = '7';
+            }
+        
+            var request = new HttpRequest(),
+                horizontal_content_list = [],
+                raw_body = {
+                    "phones": params.opass_send_to_phones,                                                // Receiver(s)' phones.
+                    "templateCode": params.opass_template_code,                                           // Opass SMS template code.
+                    "templateParam": '["' +
+                        params.event_severity + '","' +                                                   // Event severity.
+                        params.event_opdata + '","' +                                                     // Event operational data.
+                        params.alert_subject + '","' +                                                    // Alert subject.
+                        ((params.event_value === '1' && params.event_update_status === '0')               // Time type.
+                            ? 'Event time'                                                                // Problem message.
+                            : ((params.event_update_status === '1')
+                                   ? 'Event update time'                                                  // Update message.
+                                   : 'Recovery time'                                                      // Resolved message.
+                              )) + '","' +
+                        ((params.event_value === '1' && params.event_update_status === '0')
+                            ? params.event_time + ' ' + params.event_date                                 // Problem datetime.
+                            : ((params.event_update_status === '1')
+                                   ? params.event_update_time + ' ' + params.event_update_date            // Update datetime.
+                                   : params.event_recovery_time + ' ' + params.event_recovery_date        // Resolved datetime.
+                              )) + '","' +
+                        params.host_name + ' [' + params.host_ip + ']' + '","' +                          // Host name & ip address.
+                        params.event_tags + '","' +                                                       // Event tags.
+                        ((params.event_source === '0')                                                    // Event source: 0=enable.
+                            ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                params.trigger_id + '&eventid=' + params.event_id                         // Zabbix event url
+                            : params.zabbix_url) + '","' +                                                // Zabbix home url
+                        params.emergency_contact_number
+                    + '"]'
+                };
+        
+            request.addHeader('Content-Type: application/json');
+        
+            function queryStringToJSON(url) {
+                // 获取查询字符串部分
+                const queryString = url.split('?')[1];
+            
+                // 如果没有查询字符串，返回空对象
+                if (!queryString) {
+                    return {};
+                }
+        
+                const pairs = queryString.split('&');
+                const result = {};
+        
+                pairs.forEach(function(pair) {
+                    // 使用等号分割键和值，并对它们进行解码
+                    var splitPair = pair.split('=').map(function(item) {
+                        return decodeURIComponent(item);
+                    });
+        
+                    var key = splitPair[0];
+                    var value = splitPair[1];
+        
+                    // 如果键已经存在，转换为数组或追加到现有数组
+                    if (result[key]) {
+                        if (Array.isArray(result[key])) {
+                            result[key].push(value);
+                        } else {
+                            result[key] = [result[key], value];
+                        }
+                    } else {
+                        // 如果键不存在，直接赋值
+                        result[key] = value;
+                    }
+                });
+        
+                return result;
+            }
+            
+            const zabbix_event_url = (params.event_source === '0')                                        // Event source: 0=enable.
+                                         ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                             params.trigger_id + '&eventid=' + params.event_id            // Zabbix event url
+                                         : params.zabbix_url;                                             // Zabbix home url
+        
+            var post_param = JSON.stringify(raw_body);                                                    // post 中的参数
+            var queryParam = queryStringToJSON(zabbix_event_url);                                         // get 中的参数
+        
+            try{
+                var json = JSON.parse(post_param);
+                post_param = json;
+            }catch(err){
+                console.error("非标准json字符串");
+            }
+        
+            //将post和get合并，并且移除sign参数
+            for (var i in queryParam) {
+                if (queryParam[i].key == "sign" || queryParam[i].key == undefined) {
+                    continue;
+                }
+                post_param[queryParam[i].key] = queryParam[i].value;
+            }
+        
+            //获取header相关参数
+            post_param["x-sign-method"] = params.opass_sign_method;
+            post_param["x-api-key"] = params.opass_apiKey;
+        //    post_param["x-nonce"] = 9314187503;
+            post_param["x-nonce"] = randomNum(10);
+        //    post_param["x-timestamp"] = 1725359098558;
+            post_param["x-timestamp"] = (new Date()).getTime().toString();
+            request.addHeader('x-api-key: ' + post_param["x-api-key"]);
+            request.addHeader('x-sign-method: ' + post_param["x-sign-method"]);
+            request.addHeader('x-nonce: ' + post_param["x-nonce"]);
+            request.addHeader('x-timestamp: ' + post_param["x-timestamp"]);
+        
+            Zabbix.log(4, 'Before sort: ' + JSON.stringify(post_param));
+            //排序
+            post_param = objSort(post_param);
+            Zabbix.log(4, 'After sort: ' + JSON.stringify(post_param));
+        
+            //拼接
+            var kv=[];
+            for(var key in post_param){
+                kv.push(key+'='+post_param[key]);
+            }
+            var str = kv.join('&');
+            Zabbix.log(4, str);
+        
+            //生成签名
+            var sha1Str = hmac('sha256', params.opass_secretKey, str);
+            Zabbix.log(4, 'hmac: ' + sha1Str);
+        //    Zabbix.log(4, 'real: c4a47524447b30d7faace67da4cd9fbdedf2c544f5d5626a0c42bec70143d3f0');
+        
+            request.addHeader('x-sign: ' + sha1Str);
+        
+            //随机数生成
+            function randomNum(n) {
+                var num = "";
+                for(var i=0;i<n;i++){
+                    num+=Math.floor(Math.random()*10);
+                }
+                return num;
+            }
+        
+            //排序方法
+            function objSort(obj)
+            {
+                var keys = Object.keys(obj).sort();
+                var arr = {};
+                for (var i in keys) {
+                    arr[keys[i]] = obj[keys[i]];
+                }
+                return arr;
+            }
+        
+            if (typeof params.HTTPProxy === 'string' && params.HTTPProxy !== '') {
+                request.setProxy(params.HTTPProxy);
+            }
+        
+            Zabbix.log(4, '[ Infocloud Opass Webhook ] JSON: ' + JSON.stringify(raw_body));
+        
+            var response = request.post(params.opass_endpoint, JSON.stringify(raw_body));
+        
+            Zabbix.log(4, '[ Infocloud Opass Webhook ] Response: ' + response);
+        
+            if (JSON.parse(response).code === 200) {
+                return 'OK';
+            }
+            else {
+                Zabbix.log(4, '[ Infocloud Opass Webhook ] FAILED with response: ' + response);
+                throw response;
+            }
+        }
+        catch (error) {
+            Zabbix.log(3, '[ Infocloud Opass Webhook ] ERROR: ' + error);
+            throw 'Sending failed: ' + error;
+        }
+      message_templates:
+        - event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: 'Problem: {EVENT.NAME}'
+          message: |
+            Problem started at {EVENT.TIME} on {EVENT.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Operational data: {EVENT.OPDATA}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: RECOVERY
+          subject: 'Resolved: {EVENT.NAME}'
+          message: |
+            Problem has been resolved in {EVENT.DURATION} at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: UPDATE
+          subject: 'Updated problem: {EVENT.NAME}'
+          message: |
+            {USER.FULLNAME} {EVENT.UPDATE.ACTION} problem at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            {EVENT.UPDATE.MESSAGE}
+            
+            Current problem status is {EVENT.STATUS}, acknowledged: {EVENT.ACK.STATUS}.
+        - event_source: DISCOVERY
+          operation_mode: PROBLEM
+          subject: 'Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}'
+          message: |
+            Discovery rule: {DISCOVERY.RULE.NAME}
+            
+            Device IP: {DISCOVERY.DEVICE.IPADDRESS}
+            Device DNS: {DISCOVERY.DEVICE.DNS}
+            Device status: {DISCOVERY.DEVICE.STATUS}
+            Device uptime: {DISCOVERY.DEVICE.UPTIME}
+            
+            Device service name: {DISCOVERY.SERVICE.NAME}
+            Device service port: {DISCOVERY.SERVICE.PORT}
+            Device service status: {DISCOVERY.SERVICE.STATUS}
+            Device service uptime: {DISCOVERY.SERVICE.UPTIME}
+        - event_source: AUTOREGISTRATION
+          operation_mode: PROBLEM
+          subject: 'Autoregistration: {HOST.HOST}'
+          message: |
+            Host name: {HOST.HOST}
+            Host IP: {HOST.IP}
+            Agent port: {HOST.PORT}
+        - event_source: SERVICE
+          operation_mode: PROBLEM
+          subject: 'Service "{SERVICE.NAME}" problem: {EVENT.NAME}'
+          message: |
+            Service problem started at {EVENT.TIME} on {EVENT.DATE}
+            Service problem name: {EVENT.NAME}
+            Service: {SERVICE.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+        - event_source: SERVICE
+          operation_mode: RECOVERY
+          subject: 'Service "{SERVICE.NAME}" resolved in {EVENT.DURATION}: {EVENT.NAME}'
+          message: |
+            Service "{SERVICE.NAME}" has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Problem duration: {EVENT.DURATION}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+        - event_source: SERVICE
+          operation_mode: UPDATE
+          subject: 'Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} in {EVENT.AGE}'
+          message: |
+            Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            Current problem age is {EVENT.AGE}.
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+    - name: 'Infocloud Opass [323784:SCC10002:Aa@1234567] Test'
+      type: WEBHOOK
+      parameters:
+        - name: alert_message
+          value: '"Problem started at 12:47:26 on 2024.08.31"'
+        - name: alert_subject
+          value: 'Problem: Process is not running'
+        - name: emergency_contact_number
+          value: '13222201024'
+        - name: event_date
+          value: 2024.08.31
+        - name: event_id
+          value: '12098'
+        - name: event_nseverity
+          value: '4'
+        - name: event_opdata
+          value: '0'
+        - name: event_recovery_date
+          value: '{EVENT.RECOVERY.DATE}'
+        - name: event_recovery_time
+          value: '{EVENT.RECOVERY.TIME}'
+        - name: event_severity
+          value: High
+        - name: event_source
+          value: '0'
+        - name: event_status
+          value: PROBLEM
+        - name: event_tags
+          value: 'class:software, component:system, scope:availability, target:nginx'
+        - name: event_time
+          value: '12:47:26'
+        - name: event_update_action
+          value: '{EVENT.UPDATE.ACTION}'
+        - name: event_update_date
+          value: '{EVENT.UPDATE.DATE}'
+        - name: event_update_message
+          value: '{EVENT.UPDATE.MESSAGE}'
+        - name: event_update_status
+          value: '0'
+        - name: event_update_time
+          value: '{EVENT.UPDATE.TIME}'
+        - name: event_update_user
+          value: '{USER.FULLNAME}'
+        - name: event_value
+          value: '1'
+        - name: host_ip
+          value: 10.16.5.236
+        - name: host_name
+          value: 'Zabbix Server Node0'
+        - name: opass_account
+          value: SCC10002
+        - name: opass_apiKey
+          value: d7904fe46f270a92b09b6904e3781c9b
+        - name: opass_company_id
+          value: '323784'
+        - name: opass_endpoint
+          value: 'https://opassapi.infocloud.com.cn/message/send'
+        - name: opass_password
+          value: Aa@1234567
+        - name: opass_secretKey
+          value: f32ce0241a59d8cb1e0a01be69b3443ef721529becd710a6e24bd168f419983f
+        - name: opass_send_to_phones
+          value: '13222201024'
+        - name: opass_sign_method
+          value: HmacSHA256
+        - name: opass_template_code
+          value: '1050132428020592640'
+        - name: trigger_description
+          value: '{TRIGGER.DESCRIPTION}'
+        - name: trigger_id
+          value: '31890'
+        - name: use_default_message
+          value: 'false'
+        - name: use_emergency_contact
+          value: 'true'
+        - name: zabbix_url
+          value: 'https://zabbix.fhtdchem.com/'
+      status: DISABLED
+      script: |
+        var SEVERITY_COLORS = [
+            '#97AAB3', // Not classified.
+            '#7499FF', // Information.
+            '#FFC859', // Warning.
+            '#FFA059', // Average.
+            '#E97659', // High.
+            '#E45959', // Disaster.
+            '#009900', // Resolved.
+            '#000000'  // Default.
+        ];
+        
+        try {
+            var params = JSON.parse(value);
+        
+            if (typeof params.opass_endpoint !== 'string' || params.opass_endpoint.trim() === '') {
+                throw 'Cannot get opass_endpoint';
+            }
+            else if (!params.opass_endpoint.startsWith('http')) {
+                throw 'Invalid Infocloud Opass webhook URL: ' + params.opass_endpoint;
+            }
+        
+            params.zabbix_url = (params.zabbix_url.endsWith('/'))
+                ? params.zabbix_url.slice(0, -1) : params.zabbix_url;
+        
+            if ([0, 1, 2, 3, 4].indexOf(parseInt(params.event_source)) === -1) {
+                throw 'Incorrect "event_source" parameter given: "' + params.event_source + '".\nMust be 0-4.';
+            }
+        
+            // Set "use_default_message" to true for non trigger-based events.
+            if (params.event_source !== '0') {
+                params.use_default_message = 'true';
+            }
+        
+            // Check {EVENT.VALUE} for trigger-based and internal events.
+            if (params.event_value !== '0' && params.event_value !== '1'
+                    && (params.event_source === '0' || params.event_source === '3')) {
+                throw 'Incorrect "event_value" parameter given: "' + params.event_value + '".\nMust be 0 or 1.';
+            }
+        
+            // Check {EVENT.UPDATE.STATUS} only for trigger-based events.
+            if (params.event_update_status !== '0' && params.event_update_status !== '1' && params.event_source === '0') {
+                throw 'Incorrect "event_update_status" parameter given: "' + params.event_update_status + '".\nMust be 0 or 1.';
+            }
+        
+            if (params.event_value == 0) {
+                params.event_nseverity = '6';
+            }
+        
+            if (!SEVERITY_COLORS[params.event_nseverity]) {
+                params.event_nseverity = '7';
+            }
+        
+            var request = new HttpRequest(),
+                horizontal_content_list = [],
+                raw_body = {
+                    "phones": params.opass_send_to_phones,                                                // Receiver(s)' phones.
+                    "templateCode": params.opass_template_code,                                           // Opass SMS template code.
+                    "templateParam": '["' +
+                        params.event_severity + '","' +                                                   // Event severity.
+                        params.event_opdata + '","' +                                                     // Event operational data.
+                        params.alert_subject + '","' +                                                    // Alert subject.
+                        ((params.event_value === '1' && params.event_update_status === '0')               // Time type.
+                            ? 'Event time'                                                                // Problem message.
+                            : ((params.event_update_status === '1')
+                                   ? 'Event update time'                                                  // Update message.
+                                   : 'Recovery time'                                                      // Resolved message.
+                              )) + '","' +
+                        ((params.event_value === '1' && params.event_update_status === '0')
+                            ? params.event_time + ' ' + params.event_date                                 // Problem datetime.
+                            : ((params.event_update_status === '1')
+                                   ? params.event_update_time + ' ' + params.event_update_date            // Update datetime.
+                                   : params.event_recovery_time + ' ' + params.event_recovery_date        // Resolved datetime.
+                              )) + '","' +
+                        params.host_name + ' [' + params.host_ip + ']' + '","' +                          // Host name & ip address.
+                        params.event_tags + '","' +                                                       // Event tags.
+                        ((params.event_source === '0')                                                    // Event source: 0=enable.
+                            ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                params.trigger_id + '&eventid=' + params.event_id                         // Zabbix event url
+                            : params.zabbix_url) + '","' +                                                // Zabbix home url
+                        params.emergency_contact_number
+                    + '"]'
+                };
+        
+            request.addHeader('Content-Type: application/json');
+        
+            function queryStringToJSON(url) {
+                // 获取查询字符串部分
+                const queryString = url.split('?')[1];
+            
+                // 如果没有查询字符串，返回空对象
+                if (!queryString) {
+                    return {};
+                }
+        
+                const pairs = queryString.split('&');
+                const result = {};
+        
+                pairs.forEach(function(pair) {
+                    // 使用等号分割键和值，并对它们进行解码
+                    var splitPair = pair.split('=').map(function(item) {
+                        return decodeURIComponent(item);
+                    });
+        
+                    var key = splitPair[0];
+                    var value = splitPair[1];
+        
+                    // 如果键已经存在，转换为数组或追加到现有数组
+                    if (result[key]) {
+                        if (Array.isArray(result[key])) {
+                            result[key].push(value);
+                        } else {
+                            result[key] = [result[key], value];
+                        }
+                    } else {
+                        // 如果键不存在，直接赋值
+                        result[key] = value;
+                    }
+                });
+        
+                return result;
+            }
+            
+            const zabbix_event_url = (params.event_source === '0')                                        // Event source: 0=enable.
+                                         ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                             params.trigger_id + '&eventid=' + params.event_id            // Zabbix event url
+                                         : params.zabbix_url;                                             // Zabbix home url
+        
+            var post_param = JSON.stringify(raw_body);                                                    // post 中的参数
+            var queryParam = queryStringToJSON(zabbix_event_url);                                         // get 中的参数
+        
+            try{
+                var json = JSON.parse(post_param);
+                post_param = json;
+            }catch(err){
+                console.error("非标准json字符串");
+            }
+        
+            //将post和get合并，并且移除sign参数
+            for (var i in queryParam) {
+                if (queryParam[i].key == "sign" || queryParam[i].key == undefined) {
+                    continue;
+                }
+                post_param[queryParam[i].key] = queryParam[i].value;
+            }
+        
+            //获取header相关参数
+            post_param["x-sign-method"] = params.opass_sign_method;
+            post_param["x-api-key"] = params.opass_apiKey;
+        //    post_param["x-nonce"] = 9314187503;
+            post_param["x-nonce"] = randomNum(10);
+        //    post_param["x-timestamp"] = 1725359098558;
+            post_param["x-timestamp"] = (new Date()).getTime().toString();
+            request.addHeader('x-api-key: ' + post_param["x-api-key"]);
+            request.addHeader('x-sign-method: ' + post_param["x-sign-method"]);
+            request.addHeader('x-nonce: ' + post_param["x-nonce"]);
+            request.addHeader('x-timestamp: ' + post_param["x-timestamp"]);
+        
+            Zabbix.log(4, 'Before sort: ' + JSON.stringify(post_param));
+            //排序
+            post_param = objSort(post_param);
+            Zabbix.log(4, 'After sort: ' + JSON.stringify(post_param));
+        
+            //拼接
+            var kv=[];
+            for(var key in post_param){
+                kv.push(key+'='+post_param[key]);
+            }
+            var str = kv.join('&');
+            Zabbix.log(4, str);
+        
+            //生成签名
+            var sha1Str = hmac('sha256', params.opass_secretKey, str);
+            Zabbix.log(4, 'hmac: ' + sha1Str);
+        //    Zabbix.log(4, 'real: c4a47524447b30d7faace67da4cd9fbdedf2c544f5d5626a0c42bec70143d3f0');
+        
+            request.addHeader('x-sign: ' + sha1Str);
+        
+            //随机数生成
+            function randomNum(n) {
+                var num = "";
+                for(var i=0;i<n;i++){
+                    num+=Math.floor(Math.random()*10);
+                }
+                return num;
+            }
+        
+            //排序方法
+            function objSort(obj)
+            {
+                var keys = Object.keys(obj).sort();
+                var arr = {};
+                for (var i in keys) {
+                    arr[keys[i]] = obj[keys[i]];
+                }
+                return arr;
+            }
+        
+            if (typeof params.HTTPProxy === 'string' && params.HTTPProxy !== '') {
+                request.setProxy(params.HTTPProxy);
+            }
+        
+            Zabbix.log(4, '[ Infocloud Opass Webhook ] JSON: ' + JSON.stringify(raw_body));
+        
+            var response = request.post(params.opass_endpoint, JSON.stringify(raw_body));
+        
+            Zabbix.log(4, '[ Infocloud Opass Webhook ] Response: ' + response);
+        
+            if (JSON.parse(response).code === 200) {
+                return 'OK';
+            }
+            else {
+                Zabbix.log(4, '[ Infocloud Opass Webhook ] FAILED with response: ' + response);
+                throw response;
+            }
+        }
+        catch (error) {
+            Zabbix.log(3, '[ Infocloud Opass Webhook ] ERROR: ' + error);
+            throw 'Sending failed: ' + error;
+        }
+      message_templates:
+        - event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: 'Problem: {EVENT.NAME}'
+          message: |
+            Problem started at {EVENT.TIME} on {EVENT.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Operational data: {EVENT.OPDATA}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: RECOVERY
+          subject: 'Resolved: {EVENT.NAME}'
+          message: |
+            Problem has been resolved in {EVENT.DURATION} at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: UPDATE
+          subject: 'Updated problem: {EVENT.NAME}'
+          message: |
+            {USER.FULLNAME} {EVENT.UPDATE.ACTION} problem at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            {EVENT.UPDATE.MESSAGE}
+            
+            Current problem status is {EVENT.STATUS}, acknowledged: {EVENT.ACK.STATUS}.
+        - event_source: DISCOVERY
+          operation_mode: PROBLEM
+          subject: 'Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}'
+          message: |
+            Discovery rule: {DISCOVERY.RULE.NAME}
+            
+            Device IP: {DISCOVERY.DEVICE.IPADDRESS}
+            Device DNS: {DISCOVERY.DEVICE.DNS}
+            Device status: {DISCOVERY.DEVICE.STATUS}
+            Device uptime: {DISCOVERY.DEVICE.UPTIME}
+            
+            Device service name: {DISCOVERY.SERVICE.NAME}
+            Device service port: {DISCOVERY.SERVICE.PORT}
+            Device service status: {DISCOVERY.SERVICE.STATUS}
+            Device service uptime: {DISCOVERY.SERVICE.UPTIME}
+        - event_source: AUTOREGISTRATION
+          operation_mode: PROBLEM
+          subject: 'Autoregistration: {HOST.HOST}'
+          message: |
+            Host name: {HOST.HOST}
+            Host IP: {HOST.IP}
+            Agent port: {HOST.PORT}
+        - event_source: SERVICE
+          operation_mode: PROBLEM
+          subject: 'Service "{SERVICE.NAME}" problem: {EVENT.NAME}'
+          message: |
+            Service problem started at {EVENT.TIME} on {EVENT.DATE}
+            Service problem name: {EVENT.NAME}
+            Service: {SERVICE.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+        - event_source: SERVICE
+          operation_mode: RECOVERY
+          subject: 'Service "{SERVICE.NAME}" resolved in {EVENT.DURATION}: {EVENT.NAME}'
+          message: |
+            Service "{SERVICE.NAME}" has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Problem duration: {EVENT.DURATION}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+        - event_source: SERVICE
+          operation_mode: UPDATE
+          subject: 'Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} in {EVENT.AGE}'
+          message: |
+            Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            Current problem age is {EVENT.AGE}.
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+    - name: 'Infocloud Opass [323784:SCC10002:Aa@1234567] Test Cloned'
+      type: WEBHOOK
+      parameters:
+        - name: alert_message
+          value: '"Problem started at 12:47:26 on 2024.08.31"'
+        - name: alert_subject
+          value: 'Problem: Process is not running'
+        - name: emergency_contact_number
+          value: '13222201024'
+        - name: event_date
+          value: 2024.08.31
+        - name: event_id
+          value: '12098'
+        - name: event_nseverity
+          value: '4'
+        - name: event_opdata
+          value: '0'
+        - name: event_recovery_date
+          value: '{EVENT.RECOVERY.DATE}'
+        - name: event_recovery_time
+          value: '{EVENT.RECOVERY.TIME}'
+        - name: event_severity
+          value: High
+        - name: event_source
+          value: '0'
+        - name: event_status
+          value: PROBLEM
+        - name: event_tags
+          value: 'class:software, component:system, scope:availability, target:nginx'
+        - name: event_time
+          value: '12:47:26'
+        - name: event_update_action
+          value: '{EVENT.UPDATE.ACTION}'
+        - name: event_update_date
+          value: '{EVENT.UPDATE.DATE}'
+        - name: event_update_message
+          value: '{EVENT.UPDATE.MESSAGE}'
+        - name: event_update_status
+          value: '0'
+        - name: event_update_time
+          value: '{EVENT.UPDATE.TIME}'
+        - name: event_update_user
+          value: '{USER.FULLNAME}'
+        - name: event_value
+          value: '1'
+        - name: host_ip
+          value: 10.16.5.236
+        - name: host_name
+          value: 'Zabbix Server Node0'
+        - name: opass_account
+          value: SCC10002
+        - name: opass_apiKey
+          value: d7904fe46f270a92b09b6904e3781c9b
+        - name: opass_company_id
+          value: '323784'
+        - name: opass_endpoint
+          value: 'https://opassapi.infocloud.com.cn/message/send'
+        - name: opass_password
+          value: Aa@1234567
+        - name: opass_secretKey
+          value: f32ce0241a59d8cb1e0a01be69b3443ef721529becd710a6e24bd168f419983f
+        - name: opass_send_to_phones
+          value: '13222201024'
+        - name: opass_sign_method
+          value: HmacSHA256
+        - name: opass_template_code
+          value: '1050132428020592640'
+        - name: trigger_description
+          value: '{TRIGGER.DESCRIPTION}'
+        - name: trigger_id
+          value: '31890'
+        - name: use_default_message
+          value: 'false'
+        - name: use_emergency_contact
+          value: 'true'
+        - name: zabbix_url
+          value: 'https://zabbix.fhtdchem.com/'
+      status: DISABLED
+      script: |
+        var SEVERITY_COLORS = [
+            '#97AAB3', // Not classified.
+            '#7499FF', // Information.
+            '#FFC859', // Warning.
+            '#FFA059', // Average.
+            '#E97659', // High.
+            '#E45959', // Disaster.
+            '#009900', // Resolved.
+            '#000000'  // Default.
+        ];
+        
+        try {
+            var params = JSON.parse(value);
+        
+            if (typeof params.opass_endpoint !== 'string' || params.opass_endpoint.trim() === '') {
+                throw 'Cannot get opass_endpoint';
+            }
+            else if (!params.opass_endpoint.startsWith('http')) {
+                throw 'Invalid Infocloud Opass webhook URL: ' + params.opass_endpoint;
+            }
+        
+            params.zabbix_url = (params.zabbix_url.endsWith('/'))
+                ? params.zabbix_url.slice(0, -1) : params.zabbix_url;
+        
+            if ([0, 1, 2, 3, 4].indexOf(parseInt(params.event_source)) === -1) {
+                throw 'Incorrect "event_source" parameter given: "' + params.event_source + '".\nMust be 0-4.';
+            }
+        
+            // Set "use_default_message" to true for non trigger-based events.
+            if (params.event_source !== '0') {
+                params.use_default_message = 'true';
+            }
+        
+            // Check {EVENT.VALUE} for trigger-based and internal events.
+            if (params.event_value !== '0' && params.event_value !== '1'
+                    && (params.event_source === '0' || params.event_source === '3')) {
+                throw 'Incorrect "event_value" parameter given: "' + params.event_value + '".\nMust be 0 or 1.';
+            }
+        
+            // Check {EVENT.UPDATE.STATUS} only for trigger-based events.
+            if (params.event_update_status !== '0' && params.event_update_status !== '1' && params.event_source === '0') {
+                throw 'Incorrect "event_update_status" parameter given: "' + params.event_update_status + '".\nMust be 0 or 1.';
+            }
+        
+            if (params.event_value == 0) {
+                params.event_nseverity = '6';
+            }
+        
+            if (!SEVERITY_COLORS[params.event_nseverity]) {
+                params.event_nseverity = '7';
+            }
+        
+            var request = new HttpRequest(),
+                horizontal_content_list = [],
+                raw_body = {
+                    "phones": params.opass_send_to_phones,                                                // Receiver(s)' phones.
+                    "templateCode": params.opass_template_code,                                           // Opass SMS template code.
+                    "templateParam": '["' +
+                        params.event_severity + '","' +                                                   // Event severity.
+                        params.event_opdata + '","' +                                                     // Event operational data.
+                        params.alert_subject + '","' +                                                    // Alert subject.
+                        ((params.event_value === '1' && params.event_update_status === '0')               // Time type.
+                            ? 'Event time'                                                                // Problem message.
+                            : ((params.event_update_status === '1')
+                                   ? 'Event update time'                                                  // Update message.
+                                   : 'Recovery time'                                                      // Resolved message.
+                              )) + '","' +
+                        ((params.event_value === '1' && params.event_update_status === '0')
+                            ? params.event_time + ' ' + params.event_date                                 // Problem datetime.
+                            : ((params.event_update_status === '1')
+                                   ? params.event_update_time + ' ' + params.event_update_date            // Update datetime.
+                                   : params.event_recovery_time + ' ' + params.event_recovery_date        // Resolved datetime.
+                              )) + '","' +
+                        params.host_name + ' [' + params.host_ip + ']' + '","' +                          // Host name & ip address.
+                        params.event_tags + '","' +                                                       // Event tags.
+                        ((params.event_source === '0')                                                    // Event source: 0=enable.
+                            ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                params.trigger_id + '&eventid=' + params.event_id                         // Zabbix event url
+                            : params.zabbix_url) + '","' +                                                // Zabbix home url
+                        params.emergency_contact_number
+                    + '"]'
+                };
+        
+            request.addHeader('Content-Type: application/json');
+        
+            function queryStringToJSON(url) {
+                // 获取查询字符串部分
+                const queryString = url.split('?')[1];
+            
+                // 如果没有查询字符串，返回空对象
+                if (!queryString) {
+                    return {};
+                }
+        
+                const pairs = queryString.split('&');
+                const result = {};
+        
+                pairs.forEach(function(pair) {
+                    // 使用等号分割键和值，并对它们进行解码
+                    var splitPair = pair.split('=').map(function(item) {
+                        return decodeURIComponent(item);
+                    });
+        
+                    var key = splitPair[0];
+                    var value = splitPair[1];
+        
+                    // 如果键已经存在，转换为数组或追加到现有数组
+                    if (result[key]) {
+                        if (Array.isArray(result[key])) {
+                            result[key].push(value);
+                        } else {
+                            result[key] = [result[key], value];
+                        }
+                    } else {
+                        // 如果键不存在，直接赋值
+                        result[key] = value;
+                    }
+                });
+        
+                return result;
+            }
+            
+            const zabbix_event_url = (params.event_source === '0')                                        // Event source: 0=enable.
+                                         ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                             params.trigger_id + '&eventid=' + params.event_id            // Zabbix event url
+                                         : params.zabbix_url;                                             // Zabbix home url
+        
+            var post_param = JSON.stringify(raw_body);                                                    // post 中的参数
+            var queryParam = queryStringToJSON(zabbix_event_url);                                         // get 中的参数
+        
+            try{
+                var json = JSON.parse(post_param);
+                post_param = json;
+            }catch(err){
+                console.error("非标准json字符串");
+            }
+        
+            //将post和get合并，并且移除sign参数
+            for (var i in queryParam) {
+                if (queryParam[i].key == "sign" || queryParam[i].key == undefined) {
+                    continue;
+                }
+                post_param[queryParam[i].key] = queryParam[i].value;
+            }
+        
+            //获取header相关参数
+            post_param["x-sign-method"] = params.opass_sign_method;
+            post_param["x-api-key"] = params.opass_apiKey;
+        //    post_param["x-nonce"] = 9314187503;
+            post_param["x-nonce"] = randomNum(10);
+        //    post_param["x-timestamp"] = 1725359098558;
+            post_param["x-timestamp"] = (new Date()).getTime().toString();
+            request.addHeader('x-api-key: ' + post_param["x-api-key"]);
+            request.addHeader('x-sign-method: ' + post_param["x-sign-method"]);
+            request.addHeader('x-nonce: ' + post_param["x-nonce"]);
+            request.addHeader('x-timestamp: ' + post_param["x-timestamp"]);
+        
+            Zabbix.log(4, 'Before sort: ' + JSON.stringify(post_param));
+            //排序
+            post_param = objSort(post_param);
+            Zabbix.log(4, 'After sort: ' + JSON.stringify(post_param));
+        
+            //拼接
+            var kv=[];
+            for(var key in post_param){
+                kv.push(key+'='+post_param[key]);
+            }
+            var str = kv.join('&');
+            Zabbix.log(4, str);
+        
+            //生成签名
+            var sha1Str = hmac('sha256', params.opass_secretKey, str);
+            Zabbix.log(4, 'hmac: ' + sha1Str);
+        //    Zabbix.log(4, 'real: c4a47524447b30d7faace67da4cd9fbdedf2c544f5d5626a0c42bec70143d3f0');
+        
+            request.addHeader('x-sign: ' + sha1Str);
+        
+            //随机数生成
+            function randomNum(n) {
+                var num = "";
+                for(var i=0;i<n;i++){
+                    num+=Math.floor(Math.random()*10);
+                }
+                return num;
+            }
+        
+            //排序方法
+            function objSort(obj)
+            {
+                var keys = Object.keys(obj).sort();
+                var arr = {};
+                for (var i in keys) {
+                    arr[keys[i]] = obj[keys[i]];
+                }
+                return arr;
+            }
+        
+            if (typeof params.HTTPProxy === 'string' && params.HTTPProxy !== '') {
+                request.setProxy(params.HTTPProxy);
+            }
+        
+            Zabbix.log(4, '[ Infocloud Opass Webhook ] JSON: ' + JSON.stringify(raw_body));
+        
+            var response = request.post(params.opass_endpoint, JSON.stringify(raw_body));
+        
+            Zabbix.log(4, '[ Infocloud Opass Webhook ] Response: ' + response);
+        
+            if (JSON.parse(response).code === 200) {
+                return 'OK';
+            }
+            else {
+                Zabbix.log(4, '[ Infocloud Opass Webhook ] FAILED with response: ' + response);
+                throw response;
+            }
+        }
+        catch (error) {
+            Zabbix.log(3, '[ Infocloud Opass Webhook ] ERROR: ' + error);
+            throw 'Sending failed: ' + error;
+        }
+      message_templates:
+        - event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: 'Problem: {EVENT.NAME}'
+          message: |
+            Problem started at {EVENT.TIME} on {EVENT.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Operational data: {EVENT.OPDATA}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: RECOVERY
+          subject: 'Resolved: {EVENT.NAME}'
+          message: |
+            Problem has been resolved in {EVENT.DURATION} at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: UPDATE
+          subject: 'Updated problem: {EVENT.NAME}'
+          message: |
+            {USER.FULLNAME} {EVENT.UPDATE.ACTION} problem at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            {EVENT.UPDATE.MESSAGE}
+            
+            Current problem status is {EVENT.STATUS}, acknowledged: {EVENT.ACK.STATUS}.
+        - event_source: DISCOVERY
+          operation_mode: PROBLEM
+          subject: 'Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}'
+          message: |
+            Discovery rule: {DISCOVERY.RULE.NAME}
+            
+            Device IP: {DISCOVERY.DEVICE.IPADDRESS}
+            Device DNS: {DISCOVERY.DEVICE.DNS}
+            Device status: {DISCOVERY.DEVICE.STATUS}
+            Device uptime: {DISCOVERY.DEVICE.UPTIME}
+            
+            Device service name: {DISCOVERY.SERVICE.NAME}
+            Device service port: {DISCOVERY.SERVICE.PORT}
+            Device service status: {DISCOVERY.SERVICE.STATUS}
+            Device service uptime: {DISCOVERY.SERVICE.UPTIME}
+        - event_source: AUTOREGISTRATION
+          operation_mode: PROBLEM
+          subject: 'Autoregistration: {HOST.HOST}'
+          message: |
+            Host name: {HOST.HOST}
+            Host IP: {HOST.IP}
+            Agent port: {HOST.PORT}
+        - event_source: SERVICE
+          operation_mode: PROBLEM
+          subject: 'Service "{SERVICE.NAME}" problem: {EVENT.NAME}'
+          message: |
+            Service problem started at {EVENT.TIME} on {EVENT.DATE}
+            Service problem name: {EVENT.NAME}
+            Service: {SERVICE.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+        - event_source: SERVICE
+          operation_mode: RECOVERY
+          subject: 'Service "{SERVICE.NAME}" resolved in {EVENT.DURATION}: {EVENT.NAME}'
+          message: |
+            Service "{SERVICE.NAME}" has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Problem duration: {EVENT.DURATION}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+        - event_source: SERVICE
+          operation_mode: UPDATE
+          subject: 'Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} in {EVENT.AGE}'
+          message: |
+            Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            Current problem age is {EVENT.AGE}.
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+    - name: 'Tencent WeCom [ISI-Zabbix-Robot]'
+      type: WEBHOOK
+      parameters:
+        - name: alert_message
+          value: '{ALERT.MESSAGE}'
+        - name: alert_subject
+          value: '{ALERT.SUBJECT}'
+        - name: emergency_contact_number
+          value: '13222201024'
+        - name: event_date
+          value: '{EVENT.DATE}'
+        - name: event_id
+          value: '{EVENT.ID}'
+        - name: event_nseverity
+          value: '{EVENT.NSEVERITY}'
+        - name: event_opdata
+          value: '{EVENT.OPDATA}'
+        - name: event_recovery_date
+          value: '{EVENT.RECOVERY.DATE}'
+        - name: event_recovery_time
+          value: '{EVENT.RECOVERY.TIME}'
+        - name: event_severity
+          value: '{EVENT.SEVERITY}'
+        - name: event_source
+          value: '{EVENT.SOURCE}'
+        - name: event_status
+          value: '{EVENT.STATUS}'
+        - name: event_tags
+          value: '{EVENT.TAGS}'
+        - name: event_time
+          value: '{EVENT.TIME}'
+        - name: event_update_action
+          value: '{EVENT.UPDATE.ACTION}'
+        - name: event_update_date
+          value: '{EVENT.UPDATE.DATE}'
+        - name: event_update_message
+          value: '{EVENT.UPDATE.MESSAGE}'
+        - name: event_update_status
+          value: '{EVENT.UPDATE.STATUS}'
+        - name: event_update_time
+          value: '{EVENT.UPDATE.TIME}'
+        - name: event_update_user
+          value: '{USER.FULLNAME}'
+        - name: event_value
+          value: '{EVENT.VALUE}'
+        - name: host_ip
+          value: '{HOST.IP}'
+        - name: host_name
+          value: '{HOST.NAME}'
+        - name: trigger_description
+          value: '{TRIGGER.DESCRIPTION}'
+        - name: trigger_id
+          value: '{TRIGGER.ID}'
+        - name: use_default_message
+          value: 'false'
+        - name: use_emergency_contact
+          value: 'true'
+        - name: wecom_endpoint
+          value: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=0c4e5ae2-a30e-4d92-86c7-7fff83cab469'
+        - name: wecom_msgtype
+          value: template_card
+        - name: wecom_msgtype_card_type
+          value: text_notice
+        - name: zabbix_url
+          value: '{$ZABBIX_URL}'
+      script: |
+        var SEVERITY_COLORS = [
+            '#0', // Not classified.
+            '#0', // Information.
+            '#1', // Warning.
+            '#1', // Average.
+            '#2', // High.
+            '#2', // Disaster.
+            '#3', // Resolved.
+            '#0'  // Default.
+        //    '#97AAB3', // Not classified.
+        //    '#7499FF', // Information.
+        //    '#FFC859', // Warning.
+        //    '#FFA059', // Average.
+        //    '#E97659', // High.
+        //    '#E45959', // Disaster.
+        //    '#009900', // Resolved.
+        //    '#000000'  // Default.
+        ];
+        
+        try {
+            var params = JSON.parse(value);
+        
+            if (typeof params.wecom_endpoint !== 'string' || params.wecom_endpoint.trim() === '') {
+                throw 'Cannot get wecom_endpoint';
+            }
+            else if (!params.wecom_endpoint.startsWith('http')) {
+                throw 'Invalid Tencent WeCom webhook URL: ' + params.wecom_endpoint;
+            }
+        
+            params.zabbix_url = (params.zabbix_url.endsWith('/'))
+                ? params.zabbix_url.slice(0, -1) : params.zabbix_url;
+        
+            if ([0, 1, 2, 3, 4].indexOf(parseInt(params.event_source)) === -1) {
+                throw 'Incorrect "event_source" parameter given: "' + params.event_source + '".\nMust be 0-4.';
+            }
+        
+            // Set "use_default_message" to true for non trigger-based events.
+            if (params.event_source !== '0') {
+                params.use_default_message = 'true';
+            }
+        
+            // Check {EVENT.VALUE} for trigger-based and internal events.
+            if (params.event_value !== '0' && params.event_value !== '1'
+                    && (params.event_source === '0' || params.event_source === '3')) {
+                throw 'Incorrect "event_value" parameter given: "' + params.event_value + '".\nMust be 0 or 1.';
+            }
+        
+            // Check {EVENT.UPDATE.STATUS} only for trigger-based events.
+            if (params.event_update_status !== '0' && params.event_update_status !== '1' && params.event_source === '0') {
+                throw 'Incorrect "event_update_status" parameter given: "' + params.event_update_status + '".\nMust be 0 or 1.';
+            }
+        
+            if (params.event_value == 0) {
+                params.event_nseverity = '6';
+            }
+        
+            if (!SEVERITY_COLORS[params.event_nseverity]) {
+                params.event_nseverity = '7';
+            }
+        
+            var request = new HttpRequest(),
+                horizontal_content_list = [],
+                body = {
+                    "msgtype": params.wecom_msgtype,
+                    "template_card": {
+                        "card_type": params.wecom_msgtype_card_type,
+                        "source": {
+                            "icon_url": "https://zabbix.fhtdchem.com/assets/img/touch-icon-192x192.png",
+                            "desc": "FHTD-Zabbix",
+                            "desc_color": SEVERITY_COLORS[params.event_nseverity].replace('#', '')
+                        },
+                        "main_title": {
+                            "title": "【福华通达Zabbix监测告警】",
+                            "desc": params.alert_subject
+                        },
+                        "emphasis_content": {
+                            "title": (params.event_source === '0')
+                                ? 'Event Info'
+                                : 'Zabbix Home',
+                            "desc": (params.event_source === '0')
+                                ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                    params.trigger_id + '&eventid=' + params.event_id
+                                : params.zabbix_url
+                        },
+                        "quote_area": {
+                            "type": 1,
+                            "url": (params.event_source === '0')
+                                ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                    params.trigger_id + '&eventid=' + params.event_id
+                                : params.zabbix_url,
+                            "title": params.alert_subject,
+                            "quote_text": (params.use_default_message.toLowerCase() == 'true')
+                                ? params.alert_message
+                                : params.trigger_description
+                        },
+                        "sub_title_text": "==Zabbix Monitoring Details==",
+                        "jump_list": [
+                            {
+                                "type": 1,
+                                "url": "https://bastion.fhtdchem.com:7927/fort/",
+                                "title": "福华通达堡垒主机（运维）"
+        //                        "title": "FHTD Bastion Host"
+                            }
+                        ],
+                        "card_action": {
+                            "type": 1,
+                            "url": (params.event_source === '0')
+                                ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                    params.trigger_id + '&eventid=' + params.event_id
+                                : params.zabbix_url
+                        }
+                    }
+                };
+        
+            if (params.use_emergency_contact.toLowerCase() == 'true') {
+            // Emergency Contact Information.
+                horizontal_content_list.push({
+                    "keyname": "紧急电话",
+                    "value": "拨打 " + params.emergency_contact_number,
+        //            "keyname": "Emergency Contact",
+        //            "value": "Dial Now",
+                    "type": 1,
+                    "url": "https://zabbix.fhtdchem.com/emergency-call"
+                });
+        
+            }
+        
+            if (params.use_default_message.toLowerCase() !== 'true') {
+                // Problem message.
+                if (params.event_value === '1' && params.event_update_status === '0') {
+                    horizontal_content_list.push({
+                        keyname: 'Event time',
+                        value: params.event_time + ' ' + params.event_date
+                    });
+                    horizontal_content_list.push({
+                        keyname: 'Host',
+                        value: params.host_name + ' [' + params.host_ip + ']',
+                        "type": 1,
+                        "url": (params.event_source === '0')
+                                   ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                       params.trigger_id + '&eventid=' + params.event_id
+                                   : params.zabbix_url
+                    });
+        
+                }
+                // Update message.
+                else if (params.event_update_status === '1') {
+                    body.template_card.main_title.desc = params.event_update_user + ' ' + params.event_update_action + '.';
+        
+                    if (params.event_update_message) {
+                        body.template_card.main_title.desc += 'Message:' + params.event_update_message;
+                    }
+        
+                    horizontal_content_list.push({
+                        keyname: 'Event update time',
+                        value: params.event_update_time + ' ' + params.event_update_date
+                    });
+                    horizontal_content_list.push({
+                        keyname: 'Host',
+                        value: params.host_name + ' [' + params.host_ip + ']',
+                        "type": 1,
+                        "url": (params.event_source === '0')
+                                   ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                       params.trigger_id + '&eventid=' + params.event_id
+                                   : params.zabbix_url
+                    });
+        
+                }
+                // Resolved message.
+                else {
+                    horizontal_content_list.push({
+                        keyname: 'Recovery time',
+                        value: params.event_recovery_time + ' ' + params.event_recovery_date
+                    });
+                    horizontal_content_list.push({
+                        keyname: 'Host',
+                        value: params.host_name + ' [' + params.host_ip + ']',
+                        "type": 1,
+                        "url": (params.event_source === '0')
+                                   ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                       params.trigger_id + '&eventid=' + params.event_id
+                                   : params.zabbix_url
+                    });
+                }
+        
+                if (params.event_severity && params.event_severity !== '{EVENT.SEVERITY}') {
+                    horizontal_content_list.push({
+                        keyname: 'Severity',
+                        value: params.event_severity
+                    });
+                }
+        
+        
+                if (params.event_opdata && params.event_opdata !== '{EVENT.OPDATA}') {
+                    horizontal_content_list.push({
+                        keyname: 'Operational data',
+                        value: params.event_opdata
+                    });
+                }
+        
+                if (params.event_tags && params.event_tags !== '{EVENT.TAGS}') {
+                    horizontal_content_list.push({
+                        keyname: 'Event tags',
+                        value: params.event_tags
+                    });
+                }
+        
+                Object.keys(params)
+                    .forEach(function (key) {
+                        if (key.startsWith('fact_') && params[key] !== '') {
+                            horizontal_content_list.push({
+                                keyname: key.substring(5),
+                                value: params[key]
+                            });
+                        }
+                        else if (key.startsWith('openURL_') && params[key] !== '' && !params[key].startsWith('{')) {
+                            body.jump_list.push({
+                                "type": 1,
+                                "url": params[key],
+                                "title": key.substring(8)
+                            });
+                        }
+                    });
+                body.template_card.horizontal_content_list = horizontal_content_list;
+            }
+        
+        //    body.template_card.main_title.desc = body.template_card.main_title.desc.replace(/(?:\r\n|\r|\n)/g, '<br>');
+        
+            request.addHeader('Content-Type: application/json');
+        
+            if (typeof params.HTTPProxy === 'string' && params.HTTPProxy !== '') {
+                request.setProxy(params.HTTPProxy);
+            }
+        
+            Zabbix.log(4, '[ Tencent WeCom Webhook ] JSON: ' + JSON.stringify(body));
+        
+            var response = request.post(params.wecom_endpoint, JSON.stringify(body));
+        
+            Zabbix.log(4, '[ Tencent WeCom Webhook ] Response: ' + response);
+        
+            if (JSON.parse(response).errcode === 0) {
+                return 'OK';
+            }
+            else {
+                Zabbix.log(4, '[ Tencent WeCom Webhook ] FAILED with response: ' + response);
+                throw response;
+            }
+        }
+        catch (error) {
+            Zabbix.log(3, '[ Tencent WeCom Webhook ] ERROR: ' + error);
+            throw 'Sending failed: ' + error;
+        }
+      message_templates:
+        - event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: 'Problem: {EVENT.NAME}'
+          message: |
+            Problem started at {EVENT.TIME} on {EVENT.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Operational data: {EVENT.OPDATA}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: RECOVERY
+          subject: 'Resolved: {EVENT.NAME}'
+          message: |
+            Problem has been resolved in {EVENT.DURATION} at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: UPDATE
+          subject: 'Updated problem: {EVENT.NAME}'
+          message: |
+            {USER.FULLNAME} {EVENT.UPDATE.ACTION} problem at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            {EVENT.UPDATE.MESSAGE}
+            
+            Current problem status is {EVENT.STATUS}, acknowledged: {EVENT.ACK.STATUS}.
+        - event_source: DISCOVERY
+          operation_mode: PROBLEM
+          subject: 'Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}'
+          message: |
+            Discovery rule: {DISCOVERY.RULE.NAME}
+            
+            Device IP: {DISCOVERY.DEVICE.IPADDRESS}
+            Device DNS: {DISCOVERY.DEVICE.DNS}
+            Device status: {DISCOVERY.DEVICE.STATUS}
+            Device uptime: {DISCOVERY.DEVICE.UPTIME}
+            
+            Device service name: {DISCOVERY.SERVICE.NAME}
+            Device service port: {DISCOVERY.SERVICE.PORT}
+            Device service status: {DISCOVERY.SERVICE.STATUS}
+            Device service uptime: {DISCOVERY.SERVICE.UPTIME}
+        - event_source: AUTOREGISTRATION
+          operation_mode: PROBLEM
+          subject: 'Autoregistration: {HOST.HOST}'
+          message: |
+            Host name: {HOST.HOST}
+            Host IP: {HOST.IP}
+            Agent port: {HOST.PORT}
+        - event_source: SERVICE
+          operation_mode: PROBLEM
+          subject: 'Service "{SERVICE.NAME}" problem: {EVENT.NAME}'
+          message: |
+            Service problem started at {EVENT.TIME} on {EVENT.DATE}
+            Service problem name: {EVENT.NAME}
+            Service: {SERVICE.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+        - event_source: SERVICE
+          operation_mode: RECOVERY
+          subject: 'Service "{SERVICE.NAME}" resolved in {EVENT.DURATION}: {EVENT.NAME}'
+          message: |
+            Service "{SERVICE.NAME}" has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Problem duration: {EVENT.DURATION}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+        - event_source: SERVICE
+          operation_mode: UPDATE
+          subject: 'Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} in {EVENT.AGE}'
+          message: |
+            Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            Current problem age is {EVENT.AGE}.
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+    - name: 'Tencent WeCom [ISI-Zabbix-Robot] Cloned'
+      type: WEBHOOK
+      parameters:
+        - name: alert_message
+          value: '{ALERT.MESSAGE}'
+        - name: alert_subject
+          value: '{ALERT.SUBJECT}'
+        - name: emergency_contact_number
+          value: '13222201024'
+        - name: event_date
+          value: '{EVENT.DATE}'
+        - name: event_id
+          value: '{EVENT.ID}'
+        - name: event_nseverity
+          value: '{EVENT.NSEVERITY}'
+        - name: event_opdata
+          value: '{EVENT.OPDATA}'
+        - name: event_recovery_date
+          value: '{EVENT.RECOVERY.DATE}'
+        - name: event_recovery_time
+          value: '{EVENT.RECOVERY.TIME}'
+        - name: event_severity
+          value: '{EVENT.SEVERITY}'
+        - name: event_source
+          value: '{EVENT.SOURCE}'
+        - name: event_status
+          value: '{EVENT.STATUS}'
+        - name: event_tags
+          value: '{EVENT.TAGS}'
+        - name: event_time
+          value: '{EVENT.TIME}'
+        - name: event_update_action
+          value: '{EVENT.UPDATE.ACTION}'
+        - name: event_update_date
+          value: '{EVENT.UPDATE.DATE}'
+        - name: event_update_message
+          value: '{EVENT.UPDATE.MESSAGE}'
+        - name: event_update_status
+          value: '{EVENT.UPDATE.STATUS}'
+        - name: event_update_time
+          value: '{EVENT.UPDATE.TIME}'
+        - name: event_update_user
+          value: '{USER.FULLNAME}'
+        - name: event_value
+          value: '{EVENT.VALUE}'
+        - name: host_ip
+          value: '{HOST.IP}'
+        - name: host_name
+          value: '{HOST.NAME}'
+        - name: trigger_description
+          value: '{TRIGGER.DESCRIPTION}'
+        - name: trigger_id
+          value: '{TRIGGER.ID}'
+        - name: use_default_message
+          value: 'false'
+        - name: use_emergency_contact
+          value: 'true'
+        - name: wecom_endpoint
+          value: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=0c4e5ae2-a30e-4d92-86c7-7fff83cab469'
+        - name: wecom_msgtype
+          value: template_card
+        - name: wecom_msgtype_card_type
+          value: text_notice
+        - name: zabbix_url
+          value: '{$ZABBIX_URL}'
+      status: DISABLED
+      script: |
+        var SEVERITY_COLORS = [
+            '#0', // Not classified.
+            '#0', // Information.
+            '#1', // Warning.
+            '#1', // Average.
+            '#2', // High.
+            '#2', // Disaster.
+            '#3', // Resolved.
+            '#0'  // Default.
+        //    '#97AAB3', // Not classified.
+        //    '#7499FF', // Information.
+        //    '#FFC859', // Warning.
+        //    '#FFA059', // Average.
+        //    '#E97659', // High.
+        //    '#E45959', // Disaster.
+        //    '#009900', // Resolved.
+        //    '#000000'  // Default.
+        ];
+        
+        try {
+            var params = JSON.parse(value);
+        
+            if (typeof params.wecom_endpoint !== 'string' || params.wecom_endpoint.trim() === '') {
+                throw 'Cannot get wecom_endpoint';
+            }
+            else if (!params.wecom_endpoint.startsWith('http')) {
+                throw 'Invalid Tencent WeCom webhook URL: ' + params.wecom_endpoint;
+            }
+        
+            params.zabbix_url = (params.zabbix_url.endsWith('/'))
+                ? params.zabbix_url.slice(0, -1) : params.zabbix_url;
+        
+            if ([0, 1, 2, 3, 4].indexOf(parseInt(params.event_source)) === -1) {
+                throw 'Incorrect "event_source" parameter given: "' + params.event_source + '".\nMust be 0-4.';
+            }
+        
+            // Set "use_default_message" to true for non trigger-based events.
+            if (params.event_source !== '0') {
+                params.use_default_message = 'true';
+            }
+        
+            // Check {EVENT.VALUE} for trigger-based and internal events.
+            if (params.event_value !== '0' && params.event_value !== '1'
+                    && (params.event_source === '0' || params.event_source === '3')) {
+                throw 'Incorrect "event_value" parameter given: "' + params.event_value + '".\nMust be 0 or 1.';
+            }
+        
+            // Check {EVENT.UPDATE.STATUS} only for trigger-based events.
+            if (params.event_update_status !== '0' && params.event_update_status !== '1' && params.event_source === '0') {
+                throw 'Incorrect "event_update_status" parameter given: "' + params.event_update_status + '".\nMust be 0 or 1.';
+            }
+        
+            if (params.event_value == 0) {
+                params.event_nseverity = '6';
+            }
+        
+            if (!SEVERITY_COLORS[params.event_nseverity]) {
+                params.event_nseverity = '7';
+            }
+        
+            var request = new HttpRequest(),
+                horizontal_content_list = [],
+                body = {
+                    "msgtype": params.wecom_msgtype,
+                    "template_card": {
+                        "card_type": params.wecom_msgtype_card_type,
+                        "source": {
+                            "icon_url": "https://zabbix.fhtdchem.com/assets/img/touch-icon-192x192.png",
+                            "desc": "FHTD-Zabbix",
+                            "desc_color": SEVERITY_COLORS[params.event_nseverity].replace('#', '')
+                        },
+                        "main_title": {
+                            "title": "【福华通达Zabbix监测告警】",
+                            "desc": params.alert_subject
+                        },
+                        "emphasis_content": {
+                            "title": (params.event_source === '0')
+                                ? 'Event Info'
+                                : 'Zabbix Home',
+                            "desc": (params.event_source === '0')
+                                ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                    params.trigger_id + '&eventid=' + params.event_id
+                                : params.zabbix_url
+                        },
+                        "quote_area": {
+                            "type": 1,
+                            "url": (params.event_source === '0')
+                                ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                    params.trigger_id + '&eventid=' + params.event_id
+                                : params.zabbix_url,
+                            "title": params.alert_subject,
+                            "quote_text": (params.use_default_message.toLowerCase() == 'true')
+                                ? params.alert_message
+                                : params.trigger_description
+                        },
+                        "sub_title_text": "==Zabbix Monitoring Details==",
+                        "jump_list": [
+                            {
+                                "type": 1,
+                                "url": "https://bastion.fhtdchem.com:7927/fort/",
+                                "title": "福华通达堡垒主机（运维）"
+        //                        "title": "FHTD Bastion Host"
+                            }
+                        ],
+                        "card_action": {
+                            "type": 1,
+                            "url": (params.event_source === '0')
+                                ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                    params.trigger_id + '&eventid=' + params.event_id
+                                : params.zabbix_url
+                        }
+                    }
+                };
+        
+            if (params.use_emergency_contact.toLowerCase() == 'true') {
+            // Emergency Contact Information.
+                horizontal_content_list.push({
+                    "keyname": "紧急电话",
+                    "value": "拨打 " + params.emergency_contact_number,
+        //            "keyname": "Emergency Contact",
+        //            "value": "Dial Now",
+                    "type": 1,
+                    "url": "https://zabbix.fhtdchem.com/emergency-call"
+                });
+        
+            }
+        
+            if (params.use_default_message.toLowerCase() !== 'true') {
+                // Problem message.
+                if (params.event_value === '1' && params.event_update_status === '0') {
+                    horizontal_content_list.push({
+                        keyname: 'Event time',
+                        value: params.event_time + ' ' + params.event_date
+                    });
+                    horizontal_content_list.push({
+                        keyname: 'Host',
+                        value: params.host_name + ' [' + params.host_ip + ']',
+                        "type": 1,
+                        "url": (params.event_source === '0')
+                                   ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                       params.trigger_id + '&eventid=' + params.event_id
+                                   : params.zabbix_url
+                    });
+        
+                }
+                // Update message.
+                else if (params.event_update_status === '1') {
+                    body.template_card.main_title.desc = params.event_update_user + ' ' + params.event_update_action + '.';
+        
+                    if (params.event_update_message) {
+                        body.template_card.main_title.desc += 'Message:' + params.event_update_message;
+                    }
+        
+                    horizontal_content_list.push({
+                        keyname: 'Event update time',
+                        value: params.event_update_time + ' ' + params.event_update_date
+                    });
+                    horizontal_content_list.push({
+                        keyname: 'Host',
+                        value: params.host_name + ' [' + params.host_ip + ']',
+                        "type": 1,
+                        "url": (params.event_source === '0')
+                                   ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                       params.trigger_id + '&eventid=' + params.event_id
+                                   : params.zabbix_url
+                    });
+        
+                }
+                // Resolved message.
+                else {
+                    horizontal_content_list.push({
+                        keyname: 'Recovery time',
+                        value: params.event_recovery_time + ' ' + params.event_recovery_date
+                    });
+                    horizontal_content_list.push({
+                        keyname: 'Host',
+                        value: params.host_name + ' [' + params.host_ip + ']',
+                        "type": 1,
+                        "url": (params.event_source === '0')
+                                   ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                       params.trigger_id + '&eventid=' + params.event_id
+                                   : params.zabbix_url
+                    });
+                }
+        
+                if (params.event_severity && params.event_severity !== '{EVENT.SEVERITY}') {
+                    horizontal_content_list.push({
+                        keyname: 'Severity',
+                        value: params.event_severity
+                    });
+                }
+        
+        
+                if (params.event_opdata && params.event_opdata !== '{EVENT.OPDATA}') {
+                    horizontal_content_list.push({
+                        keyname: 'Operational data',
+                        value: params.event_opdata
+                    });
+                }
+        
+                if (params.event_tags && params.event_tags !== '{EVENT.TAGS}') {
+                    horizontal_content_list.push({
+                        keyname: 'Event tags',
+                        value: params.event_tags
+                    });
+                }
+        
+                Object.keys(params)
+                    .forEach(function (key) {
+                        if (key.startsWith('fact_') && params[key] !== '') {
+                            horizontal_content_list.push({
+                                keyname: key.substring(5),
+                                value: params[key]
+                            });
+                        }
+                        else if (key.startsWith('openURL_') && params[key] !== '' && !params[key].startsWith('{')) {
+                            body.jump_list.push({
+                                "type": 1,
+                                "url": params[key],
+                                "title": key.substring(8)
+                            });
+                        }
+                    });
+                body.template_card.horizontal_content_list = horizontal_content_list;
+            }
+        
+        //    body.template_card.main_title.desc = body.template_card.main_title.desc.replace(/(?:\r\n|\r|\n)/g, '<br>');
+        
+            request.addHeader('Content-Type: application/json');
+        
+            if (typeof params.HTTPProxy === 'string' && params.HTTPProxy !== '') {
+                request.setProxy(params.HTTPProxy);
+            }
+        
+            Zabbix.log(4, '[ Tencent WeCom Webhook ] JSON: ' + JSON.stringify(body));
+        
+            var response = request.post(params.wecom_endpoint, JSON.stringify(body));
+        
+            Zabbix.log(4, '[ Tencent WeCom Webhook ] Response: ' + response);
+        
+            if (JSON.parse(response).errcode === 0) {
+                return 'OK';
+            }
+            else {
+                Zabbix.log(4, '[ Tencent WeCom Webhook ] FAILED with response: ' + response);
+                throw response;
+            }
+        }
+        catch (error) {
+            Zabbix.log(3, '[ Tencent WeCom Webhook ] ERROR: ' + error);
+            throw 'Sending failed: ' + error;
+        }
+      message_templates:
+        - event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: 'Problem: {EVENT.NAME}'
+          message: |
+            Problem started at {EVENT.TIME} on {EVENT.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Operational data: {EVENT.OPDATA}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: RECOVERY
+          subject: 'Resolved: {EVENT.NAME}'
+          message: |
+            Problem has been resolved in {EVENT.DURATION} at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: UPDATE
+          subject: 'Updated problem: {EVENT.NAME}'
+          message: |
+            {USER.FULLNAME} {EVENT.UPDATE.ACTION} problem at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            {EVENT.UPDATE.MESSAGE}
+            
+            Current problem status is {EVENT.STATUS}, acknowledged: {EVENT.ACK.STATUS}.
+        - event_source: DISCOVERY
+          operation_mode: PROBLEM
+          subject: 'Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}'
+          message: |
+            Discovery rule: {DISCOVERY.RULE.NAME}
+            
+            Device IP: {DISCOVERY.DEVICE.IPADDRESS}
+            Device DNS: {DISCOVERY.DEVICE.DNS}
+            Device status: {DISCOVERY.DEVICE.STATUS}
+            Device uptime: {DISCOVERY.DEVICE.UPTIME}
+            
+            Device service name: {DISCOVERY.SERVICE.NAME}
+            Device service port: {DISCOVERY.SERVICE.PORT}
+            Device service status: {DISCOVERY.SERVICE.STATUS}
+            Device service uptime: {DISCOVERY.SERVICE.UPTIME}
+        - event_source: AUTOREGISTRATION
+          operation_mode: PROBLEM
+          subject: 'Autoregistration: {HOST.HOST}'
+          message: |
+            Host name: {HOST.HOST}
+            Host IP: {HOST.IP}
+            Agent port: {HOST.PORT}
+        - event_source: SERVICE
+          operation_mode: PROBLEM
+          subject: 'Service "{SERVICE.NAME}" problem: {EVENT.NAME}'
+          message: |
+            Service problem started at {EVENT.TIME} on {EVENT.DATE}
+            Service problem name: {EVENT.NAME}
+            Service: {SERVICE.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+        - event_source: SERVICE
+          operation_mode: RECOVERY
+          subject: 'Service "{SERVICE.NAME}" resolved in {EVENT.DURATION}: {EVENT.NAME}'
+          message: |
+            Service "{SERVICE.NAME}" has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Problem duration: {EVENT.DURATION}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+        - event_source: SERVICE
+          operation_mode: UPDATE
+          subject: 'Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} in {EVENT.AGE}'
+          message: |
+            Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            Current problem age is {EVENT.AGE}.
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+    - name: 'Tencent WeCom [SOC-Zabbix-Robot]'
+      type: WEBHOOK
+      parameters:
+        - name: alert_message
+          value: '{ALERT.MESSAGE}'
+        - name: alert_subject
+          value: '{ALERT.SUBJECT}'
+        - name: emergency_contact_number
+          value: '13222201024'
+        - name: event_date
+          value: '{EVENT.DATE}'
+        - name: event_id
+          value: '{EVENT.ID}'
+        - name: event_nseverity
+          value: '{EVENT.NSEVERITY}'
+        - name: event_opdata
+          value: '{EVENT.OPDATA}'
+        - name: event_recovery_date
+          value: '{EVENT.RECOVERY.DATE}'
+        - name: event_recovery_time
+          value: '{EVENT.RECOVERY.TIME}'
+        - name: event_severity
+          value: '{EVENT.SEVERITY}'
+        - name: event_source
+          value: '{EVENT.SOURCE}'
+        - name: event_status
+          value: '{EVENT.STATUS}'
+        - name: event_tags
+          value: '{EVENT.TAGS}'
+        - name: event_time
+          value: '{EVENT.TIME}'
+        - name: event_update_action
+          value: '{EVENT.UPDATE.ACTION}'
+        - name: event_update_date
+          value: '{EVENT.UPDATE.DATE}'
+        - name: event_update_message
+          value: '{EVENT.UPDATE.MESSAGE}'
+        - name: event_update_status
+          value: '{EVENT.UPDATE.STATUS}'
+        - name: event_update_time
+          value: '{EVENT.UPDATE.TIME}'
+        - name: event_update_user
+          value: '{USER.FULLNAME}'
+        - name: event_value
+          value: '{EVENT.VALUE}'
+        - name: host_ip
+          value: '{HOST.IP}'
+        - name: host_name
+          value: '{HOST.NAME}'
+        - name: trigger_description
+          value: '{TRIGGER.DESCRIPTION}'
+        - name: trigger_id
+          value: '{TRIGGER.ID}'
+        - name: use_default_message
+          value: 'false'
+        - name: use_emergency_contact
+          value: 'true'
+        - name: wecom_endpoint
+          value: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=8bdf9153-dfb2-4ef2-b141-77b36e717b73'
+        - name: wecom_msgtype
+          value: template_card
+        - name: wecom_msgtype_card_type
+          value: text_notice
+        - name: zabbix_url
+          value: '{$ZABBIX_URL}'
+      script: |
+        var SEVERITY_COLORS = [
+            '#0', // Not classified.
+            '#0', // Information.
+            '#1', // Warning.
+            '#1', // Average.
+            '#2', // High.
+            '#2', // Disaster.
+            '#3', // Resolved.
+            '#0'  // Default.
+        //    '#97AAB3', // Not classified.
+        //    '#7499FF', // Information.
+        //    '#FFC859', // Warning.
+        //    '#FFA059', // Average.
+        //    '#E97659', // High.
+        //    '#E45959', // Disaster.
+        //    '#009900', // Resolved.
+        //    '#000000'  // Default.
+        ];
+        
+        try {
+            var params = JSON.parse(value);
+        
+            if (typeof params.wecom_endpoint !== 'string' || params.wecom_endpoint.trim() === '') {
+                throw 'Cannot get wecom_endpoint';
+            }
+            else if (!params.wecom_endpoint.startsWith('http')) {
+                throw 'Invalid Tencent WeCom webhook URL: ' + params.wecom_endpoint;
+            }
+        
+            params.zabbix_url = (params.zabbix_url.endsWith('/'))
+                ? params.zabbix_url.slice(0, -1) : params.zabbix_url;
+        
+            if ([0, 1, 2, 3, 4].indexOf(parseInt(params.event_source)) === -1) {
+                throw 'Incorrect "event_source" parameter given: "' + params.event_source + '".\nMust be 0-4.';
+            }
+        
+            // Set "use_default_message" to true for non trigger-based events.
+            if (params.event_source !== '0') {
+                params.use_default_message = 'true';
+            }
+        
+            // Check {EVENT.VALUE} for trigger-based and internal events.
+            if (params.event_value !== '0' && params.event_value !== '1'
+                    && (params.event_source === '0' || params.event_source === '3')) {
+                throw 'Incorrect "event_value" parameter given: "' + params.event_value + '".\nMust be 0 or 1.';
+            }
+        
+            // Check {EVENT.UPDATE.STATUS} only for trigger-based events.
+            if (params.event_update_status !== '0' && params.event_update_status !== '1' && params.event_source === '0') {
+                throw 'Incorrect "event_update_status" parameter given: "' + params.event_update_status + '".\nMust be 0 or 1.';
+            }
+        
+            if (params.event_value == 0) {
+                params.event_nseverity = '6';
+            }
+        
+            if (!SEVERITY_COLORS[params.event_nseverity]) {
+                params.event_nseverity = '7';
+            }
+        
+            var request = new HttpRequest(),
+                horizontal_content_list = [],
+                body = {
+                    "msgtype": params.wecom_msgtype,
+                    "template_card": {
+                        "card_type": params.wecom_msgtype_card_type,
+                        "source": {
+                            "icon_url": "https://zabbix.fhtdchem.com/assets/img/touch-icon-192x192.png",
+                            "desc": "FHTD-Zabbix",
+                            "desc_color": SEVERITY_COLORS[params.event_nseverity].replace('#', '')
+                        },
+                        "main_title": {
+                            "title": "【福华通达Zabbix监测告警】",
+                            "desc": params.alert_subject
+                        },
+                        "emphasis_content": {
+                            "title": (params.event_source === '0')
+                                ? 'Event Info'
+                                : 'Zabbix Home',
+                            "desc": (params.event_source === '0')
+                                ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                    params.trigger_id + '&eventid=' + params.event_id
+                                : params.zabbix_url
+                        },
+                        "quote_area": {
+                            "type": 1,
+                            "url": (params.event_source === '0')
+                                ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                    params.trigger_id + '&eventid=' + params.event_id
+                                : params.zabbix_url,
+                            "title": params.alert_subject,
+                            "quote_text": (params.use_default_message.toLowerCase() == 'true')
+                                ? params.alert_message
+                                : params.trigger_description
+                        },
+                        "sub_title_text": "==Zabbix Monitoring Details==",
+                        "jump_list": [
+                            {
+                                "type": 1,
+                                "url": "https://bastion.fhtdchem.com:7927/fort/",
+                                "title": "福华通达堡垒主机（运维）"
+        //                        "title": "FHTD Bastion Host"
+                            }
+                        ],
+                        "card_action": {
+                            "type": 1,
+                            "url": (params.event_source === '0')
+                                ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                    params.trigger_id + '&eventid=' + params.event_id
+                                : params.zabbix_url
+                        }
+                    }
+                };
+        
+            if (params.use_emergency_contact.toLowerCase() == 'true') {
+            // Emergency Contact Information.
+                horizontal_content_list.push({
+                    "keyname": "紧急电话",
+                    "value": "拨打 " + params.emergency_contact_number,
+        //            "keyname": "Emergency Contact",
+        //            "value": "Dial Now",
+                    "type": 1,
+                    "url": "https://zabbix.fhtdchem.com/emergency-call"
+                });
+        
+            }
+        
+            if (params.use_default_message.toLowerCase() !== 'true') {
+                // Problem message.
+                if (params.event_value === '1' && params.event_update_status === '0') {
+                    horizontal_content_list.push({
+                        keyname: 'Event time',
+                        value: params.event_time + ' ' + params.event_date
+                    });
+                    horizontal_content_list.push({
+                        keyname: 'Host',
+                        value: params.host_name + ' [' + params.host_ip + ']',
+                        "type": 1,
+                        "url": (params.event_source === '0')
+                                   ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                       params.trigger_id + '&eventid=' + params.event_id
+                                   : params.zabbix_url
+                    });
+        
+                }
+                // Update message.
+                else if (params.event_update_status === '1') {
+                    body.template_card.main_title.desc = params.event_update_user + ' ' + params.event_update_action + '.';
+        
+                    if (params.event_update_message) {
+                        body.template_card.main_title.desc += 'Message:' + params.event_update_message;
+                    }
+        
+                    horizontal_content_list.push({
+                        keyname: 'Event update time',
+                        value: params.event_update_time + ' ' + params.event_update_date
+                    });
+                    horizontal_content_list.push({
+                        keyname: 'Host',
+                        value: params.host_name + ' [' + params.host_ip + ']',
+                        "type": 1,
+                        "url": (params.event_source === '0')
+                                   ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                       params.trigger_id + '&eventid=' + params.event_id
+                                   : params.zabbix_url
+                    });
+        
+                }
+                // Resolved message.
+                else {
+                    horizontal_content_list.push({
+                        keyname: 'Recovery time',
+                        value: params.event_recovery_time + ' ' + params.event_recovery_date
+                    });
+                    horizontal_content_list.push({
+                        keyname: 'Host',
+                        value: params.host_name + ' [' + params.host_ip + ']',
+                        "type": 1,
+                        "url": (params.event_source === '0')
+                                   ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                       params.trigger_id + '&eventid=' + params.event_id
+                                   : params.zabbix_url
+                    });
+                }
+        
+                if (params.event_severity && params.event_severity !== '{EVENT.SEVERITY}') {
+                    horizontal_content_list.push({
+                        keyname: 'Severity',
+                        value: params.event_severity
+                    });
+                }
+        
+        
+                if (params.event_opdata && params.event_opdata !== '{EVENT.OPDATA}') {
+                    horizontal_content_list.push({
+                        keyname: 'Operational data',
+                        value: params.event_opdata
+                    });
+                }
+        
+                if (params.event_tags && params.event_tags !== '{EVENT.TAGS}') {
+                    horizontal_content_list.push({
+                        keyname: 'Event tags',
+                        value: params.event_tags
+                    });
+                }
+        
+                Object.keys(params)
+                    .forEach(function (key) {
+                        if (key.startsWith('fact_') && params[key] !== '') {
+                            horizontal_content_list.push({
+                                keyname: key.substring(5),
+                                value: params[key]
+                            });
+                        }
+                        else if (key.startsWith('openURL_') && params[key] !== '' && !params[key].startsWith('{')) {
+                            body.jump_list.push({
+                                "type": 1,
+                                "url": params[key],
+                                "title": key.substring(8)
+                            });
+                        }
+                    });
+                body.template_card.horizontal_content_list = horizontal_content_list;
+            }
+        
+        //    body.template_card.main_title.desc = body.template_card.main_title.desc.replace(/(?:\r\n|\r|\n)/g, '<br>');
+        
+            request.addHeader('Content-Type: application/json');
+        
+            if (typeof params.HTTPProxy === 'string' && params.HTTPProxy !== '') {
+                request.setProxy(params.HTTPProxy);
+            }
+        
+            Zabbix.log(4, '[ Tencent WeCom Webhook ] JSON: ' + JSON.stringify(body));
+        
+            var response = request.post(params.wecom_endpoint, JSON.stringify(body));
+        
+            Zabbix.log(4, '[ Tencent WeCom Webhook ] Response: ' + response);
+        
+            if (JSON.parse(response).errcode === 0) {
+                return 'OK';
+            }
+            else {
+                Zabbix.log(4, '[ Tencent WeCom Webhook ] FAILED with response: ' + response);
+                throw response;
+            }
+        }
+        catch (error) {
+            Zabbix.log(3, '[ Tencent WeCom Webhook ] ERROR: ' + error);
+            throw 'Sending failed: ' + error;
+        }
+      message_templates:
+        - event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: 'Problem: {EVENT.NAME}'
+          message: |
+            Problem started at {EVENT.TIME} on {EVENT.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Operational data: {EVENT.OPDATA}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: RECOVERY
+          subject: 'Resolved: {EVENT.NAME}'
+          message: |
+            Problem has been resolved in {EVENT.DURATION} at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: UPDATE
+          subject: 'Updated problem: {EVENT.NAME}'
+          message: |
+            {USER.FULLNAME} {EVENT.UPDATE.ACTION} problem at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            {EVENT.UPDATE.MESSAGE}
+            
+            Current problem status is {EVENT.STATUS}, acknowledged: {EVENT.ACK.STATUS}.
+        - event_source: DISCOVERY
+          operation_mode: PROBLEM
+          subject: 'Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}'
+          message: |
+            Discovery rule: {DISCOVERY.RULE.NAME}
+            
+            Device IP: {DISCOVERY.DEVICE.IPADDRESS}
+            Device DNS: {DISCOVERY.DEVICE.DNS}
+            Device status: {DISCOVERY.DEVICE.STATUS}
+            Device uptime: {DISCOVERY.DEVICE.UPTIME}
+            
+            Device service name: {DISCOVERY.SERVICE.NAME}
+            Device service port: {DISCOVERY.SERVICE.PORT}
+            Device service status: {DISCOVERY.SERVICE.STATUS}
+            Device service uptime: {DISCOVERY.SERVICE.UPTIME}
+        - event_source: AUTOREGISTRATION
+          operation_mode: PROBLEM
+          subject: 'Autoregistration: {HOST.HOST}'
+          message: |
+            Host name: {HOST.HOST}
+            Host IP: {HOST.IP}
+            Agent port: {HOST.PORT}
+        - event_source: SERVICE
+          operation_mode: PROBLEM
+          subject: 'Service "{SERVICE.NAME}" problem: {EVENT.NAME}'
+          message: |
+            Service problem started at {EVENT.TIME} on {EVENT.DATE}
+            Service problem name: {EVENT.NAME}
+            Service: {SERVICE.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+        - event_source: SERVICE
+          operation_mode: RECOVERY
+          subject: 'Service "{SERVICE.NAME}" resolved in {EVENT.DURATION}: {EVENT.NAME}'
+          message: |
+            Service "{SERVICE.NAME}" has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Problem duration: {EVENT.DURATION}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+        - event_source: SERVICE
+          operation_mode: UPDATE
+          subject: 'Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} in {EVENT.AGE}'
+          message: |
+            Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            Current problem age is {EVENT.AGE}.
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+    - name: 'Tencent WeCom [SOC-Zabbix-Robot] Cloned'
+      type: WEBHOOK
+      parameters:
+        - name: alert_message
+          value: '{ALERT.MESSAGE}'
+        - name: alert_subject
+          value: '{ALERT.SUBJECT}'
+        - name: emergency_contact_number
+          value: '13222201024'
+        - name: event_date
+          value: '{EVENT.DATE}'
+        - name: event_id
+          value: '{EVENT.ID}'
+        - name: event_nseverity
+          value: '{EVENT.NSEVERITY}'
+        - name: event_opdata
+          value: '{EVENT.OPDATA}'
+        - name: event_recovery_date
+          value: '{EVENT.RECOVERY.DATE}'
+        - name: event_recovery_time
+          value: '{EVENT.RECOVERY.TIME}'
+        - name: event_severity
+          value: '{EVENT.SEVERITY}'
+        - name: event_source
+          value: '{EVENT.SOURCE}'
+        - name: event_status
+          value: '{EVENT.STATUS}'
+        - name: event_tags
+          value: '{EVENT.TAGS}'
+        - name: event_time
+          value: '{EVENT.TIME}'
+        - name: event_update_action
+          value: '{EVENT.UPDATE.ACTION}'
+        - name: event_update_date
+          value: '{EVENT.UPDATE.DATE}'
+        - name: event_update_message
+          value: '{EVENT.UPDATE.MESSAGE}'
+        - name: event_update_status
+          value: '{EVENT.UPDATE.STATUS}'
+        - name: event_update_time
+          value: '{EVENT.UPDATE.TIME}'
+        - name: event_update_user
+          value: '{USER.FULLNAME}'
+        - name: event_value
+          value: '{EVENT.VALUE}'
+        - name: host_ip
+          value: '{HOST.IP}'
+        - name: host_name
+          value: '{HOST.NAME}'
+        - name: trigger_description
+          value: '{TRIGGER.DESCRIPTION}'
+        - name: trigger_id
+          value: '{TRIGGER.ID}'
+        - name: use_default_message
+          value: 'false'
+        - name: use_emergency_contact
+          value: 'true'
+        - name: wecom_endpoint
+          value: 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=8bdf9153-dfb2-4ef2-b141-77b36e717b73'
+        - name: wecom_msgtype
+          value: template_card
+        - name: wecom_msgtype_card_type
+          value: text_notice
+        - name: zabbix_url
+          value: '{$ZABBIX_URL}'
+      status: DISABLED
+      script: |
+        var SEVERITY_COLORS = [
+            '#0', // Not classified.
+            '#0', // Information.
+            '#1', // Warning.
+            '#1', // Average.
+            '#2', // High.
+            '#2', // Disaster.
+            '#3', // Resolved.
+            '#0'  // Default.
+        //    '#97AAB3', // Not classified.
+        //    '#7499FF', // Information.
+        //    '#FFC859', // Warning.
+        //    '#FFA059', // Average.
+        //    '#E97659', // High.
+        //    '#E45959', // Disaster.
+        //    '#009900', // Resolved.
+        //    '#000000'  // Default.
+        ];
+        
+        try {
+            var params = JSON.parse(value);
+        
+            if (typeof params.wecom_endpoint !== 'string' || params.wecom_endpoint.trim() === '') {
+                throw 'Cannot get wecom_endpoint';
+            }
+            else if (!params.wecom_endpoint.startsWith('http')) {
+                throw 'Invalid Tencent WeCom webhook URL: ' + params.wecom_endpoint;
+            }
+        
+            params.zabbix_url = (params.zabbix_url.endsWith('/'))
+                ? params.zabbix_url.slice(0, -1) : params.zabbix_url;
+        
+            if ([0, 1, 2, 3, 4].indexOf(parseInt(params.event_source)) === -1) {
+                throw 'Incorrect "event_source" parameter given: "' + params.event_source + '".\nMust be 0-4.';
+            }
+        
+            // Set "use_default_message" to true for non trigger-based events.
+            if (params.event_source !== '0') {
+                params.use_default_message = 'true';
+            }
+        
+            // Check {EVENT.VALUE} for trigger-based and internal events.
+            if (params.event_value !== '0' && params.event_value !== '1'
+                    && (params.event_source === '0' || params.event_source === '3')) {
+                throw 'Incorrect "event_value" parameter given: "' + params.event_value + '".\nMust be 0 or 1.';
+            }
+        
+            // Check {EVENT.UPDATE.STATUS} only for trigger-based events.
+            if (params.event_update_status !== '0' && params.event_update_status !== '1' && params.event_source === '0') {
+                throw 'Incorrect "event_update_status" parameter given: "' + params.event_update_status + '".\nMust be 0 or 1.';
+            }
+        
+            if (params.event_value == 0) {
+                params.event_nseverity = '6';
+            }
+        
+            if (!SEVERITY_COLORS[params.event_nseverity]) {
+                params.event_nseverity = '7';
+            }
+        
+            var request = new HttpRequest(),
+                horizontal_content_list = [],
+                body = {
+                    "msgtype": params.wecom_msgtype,
+                    "template_card": {
+                        "card_type": params.wecom_msgtype_card_type,
+                        "source": {
+                            "icon_url": "https://zabbix.fhtdchem.com/assets/img/touch-icon-192x192.png",
+                            "desc": "FHTD-Zabbix",
+                            "desc_color": SEVERITY_COLORS[params.event_nseverity].replace('#', '')
+                        },
+                        "main_title": {
+                            "title": "【福华通达Zabbix监测告警】",
+                            "desc": params.alert_subject
+                        },
+                        "emphasis_content": {
+                            "title": (params.event_source === '0')
+                                ? 'Event Info'
+                                : 'Zabbix Home',
+                            "desc": (params.event_source === '0')
+                                ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                    params.trigger_id + '&eventid=' + params.event_id
+                                : params.zabbix_url
+                        },
+                        "quote_area": {
+                            "type": 1,
+                            "url": (params.event_source === '0')
+                                ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                    params.trigger_id + '&eventid=' + params.event_id
+                                : params.zabbix_url,
+                            "title": params.alert_subject,
+                            "quote_text": (params.use_default_message.toLowerCase() == 'true')
+                                ? params.alert_message
+                                : params.trigger_description
+                        },
+                        "sub_title_text": "==Zabbix Monitoring Details==",
+                        "jump_list": [
+                            {
+                                "type": 1,
+                                "url": "https://bastion.fhtdchem.com:7927/fort/",
+                                "title": "福华通达堡垒主机（运维）"
+        //                        "title": "FHTD Bastion Host"
+                            }
+                        ],
+                        "card_action": {
+                            "type": 1,
+                            "url": (params.event_source === '0')
+                                ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                    params.trigger_id + '&eventid=' + params.event_id
+                                : params.zabbix_url
+                        }
+                    }
+                };
+        
+            if (params.use_emergency_contact.toLowerCase() == 'true') {
+            // Emergency Contact Information.
+                horizontal_content_list.push({
+                    "keyname": "紧急电话",
+                    "value": "拨打 " + params.emergency_contact_number,
+        //            "keyname": "Emergency Contact",
+        //            "value": "Dial Now",
+                    "type": 1,
+                    "url": "https://zabbix.fhtdchem.com/emergency-call"
+                });
+        
+            }
+        
+            if (params.use_default_message.toLowerCase() !== 'true') {
+                // Problem message.
+                if (params.event_value === '1' && params.event_update_status === '0') {
+                    horizontal_content_list.push({
+                        keyname: 'Event time',
+                        value: params.event_time + ' ' + params.event_date
+                    });
+                    horizontal_content_list.push({
+                        keyname: 'Host',
+                        value: params.host_name + ' [' + params.host_ip + ']',
+                        "type": 1,
+                        "url": (params.event_source === '0')
+                                   ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                       params.trigger_id + '&eventid=' + params.event_id
+                                   : params.zabbix_url
+                    });
+        
+                }
+                // Update message.
+                else if (params.event_update_status === '1') {
+                    body.template_card.main_title.desc = params.event_update_user + ' ' + params.event_update_action + '.';
+        
+                    if (params.event_update_message) {
+                        body.template_card.main_title.desc += 'Message:' + params.event_update_message;
+                    }
+        
+                    horizontal_content_list.push({
+                        keyname: 'Event update time',
+                        value: params.event_update_time + ' ' + params.event_update_date
+                    });
+                    horizontal_content_list.push({
+                        keyname: 'Host',
+                        value: params.host_name + ' [' + params.host_ip + ']',
+                        "type": 1,
+                        "url": (params.event_source === '0')
+                                   ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                       params.trigger_id + '&eventid=' + params.event_id
+                                   : params.zabbix_url
+                    });
+        
+                }
+                // Resolved message.
+                else {
+                    horizontal_content_list.push({
+                        keyname: 'Recovery time',
+                        value: params.event_recovery_time + ' ' + params.event_recovery_date
+                    });
+                    horizontal_content_list.push({
+                        keyname: 'Host',
+                        value: params.host_name + ' [' + params.host_ip + ']',
+                        "type": 1,
+                        "url": (params.event_source === '0')
+                                   ? params.zabbix_url + '/tr_events.php?triggerid=' +
+                                       params.trigger_id + '&eventid=' + params.event_id
+                                   : params.zabbix_url
+                    });
+                }
+        
+                if (params.event_severity && params.event_severity !== '{EVENT.SEVERITY}') {
+                    horizontal_content_list.push({
+                        keyname: 'Severity',
+                        value: params.event_severity
+                    });
+                }
+        
+        
+                if (params.event_opdata && params.event_opdata !== '{EVENT.OPDATA}') {
+                    horizontal_content_list.push({
+                        keyname: 'Operational data',
+                        value: params.event_opdata
+                    });
+                }
+        
+                if (params.event_tags && params.event_tags !== '{EVENT.TAGS}') {
+                    horizontal_content_list.push({
+                        keyname: 'Event tags',
+                        value: params.event_tags
+                    });
+                }
+        
+                Object.keys(params)
+                    .forEach(function (key) {
+                        if (key.startsWith('fact_') && params[key] !== '') {
+                            horizontal_content_list.push({
+                                keyname: key.substring(5),
+                                value: params[key]
+                            });
+                        }
+                        else if (key.startsWith('openURL_') && params[key] !== '' && !params[key].startsWith('{')) {
+                            body.jump_list.push({
+                                "type": 1,
+                                "url": params[key],
+                                "title": key.substring(8)
+                            });
+                        }
+                    });
+                body.template_card.horizontal_content_list = horizontal_content_list;
+            }
+        
+        //    body.template_card.main_title.desc = body.template_card.main_title.desc.replace(/(?:\r\n|\r|\n)/g, '<br>');
+        
+            request.addHeader('Content-Type: application/json');
+        
+            if (typeof params.HTTPProxy === 'string' && params.HTTPProxy !== '') {
+                request.setProxy(params.HTTPProxy);
+            }
+        
+            Zabbix.log(4, '[ Tencent WeCom Webhook ] JSON: ' + JSON.stringify(body));
+        
+            var response = request.post(params.wecom_endpoint, JSON.stringify(body));
+        
+            Zabbix.log(4, '[ Tencent WeCom Webhook ] Response: ' + response);
+        
+            if (JSON.parse(response).errcode === 0) {
+                return 'OK';
+            }
+            else {
+                Zabbix.log(4, '[ Tencent WeCom Webhook ] FAILED with response: ' + response);
+                throw response;
+            }
+        }
+        catch (error) {
+            Zabbix.log(3, '[ Tencent WeCom Webhook ] ERROR: ' + error);
+            throw 'Sending failed: ' + error;
+        }
+      message_templates:
+        - event_source: TRIGGERS
+          operation_mode: PROBLEM
+          subject: 'Problem: {EVENT.NAME}'
+          message: |
+            Problem started at {EVENT.TIME} on {EVENT.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Operational data: {EVENT.OPDATA}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: RECOVERY
+          subject: 'Resolved: {EVENT.NAME}'
+          message: |
+            Problem has been resolved in {EVENT.DURATION} at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Host: {HOST.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            {TRIGGER.URL}
+        - event_source: TRIGGERS
+          operation_mode: UPDATE
+          subject: 'Updated problem: {EVENT.NAME}'
+          message: |
+            {USER.FULLNAME} {EVENT.UPDATE.ACTION} problem at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            {EVENT.UPDATE.MESSAGE}
+            
+            Current problem status is {EVENT.STATUS}, acknowledged: {EVENT.ACK.STATUS}.
+        - event_source: DISCOVERY
+          operation_mode: PROBLEM
+          subject: 'Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}'
+          message: |
+            Discovery rule: {DISCOVERY.RULE.NAME}
+            
+            Device IP: {DISCOVERY.DEVICE.IPADDRESS}
+            Device DNS: {DISCOVERY.DEVICE.DNS}
+            Device status: {DISCOVERY.DEVICE.STATUS}
+            Device uptime: {DISCOVERY.DEVICE.UPTIME}
+            
+            Device service name: {DISCOVERY.SERVICE.NAME}
+            Device service port: {DISCOVERY.SERVICE.PORT}
+            Device service status: {DISCOVERY.SERVICE.STATUS}
+            Device service uptime: {DISCOVERY.SERVICE.UPTIME}
+        - event_source: AUTOREGISTRATION
+          operation_mode: PROBLEM
+          subject: 'Autoregistration: {HOST.HOST}'
+          message: |
+            Host name: {HOST.HOST}
+            Host IP: {HOST.IP}
+            Agent port: {HOST.PORT}
+        - event_source: SERVICE
+          operation_mode: PROBLEM
+          subject: 'Service "{SERVICE.NAME}" problem: {EVENT.NAME}'
+          message: |
+            Service problem started at {EVENT.TIME} on {EVENT.DATE}
+            Service problem name: {EVENT.NAME}
+            Service: {SERVICE.NAME}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}
+        - event_source: SERVICE
+          operation_mode: RECOVERY
+          subject: 'Service "{SERVICE.NAME}" resolved in {EVENT.DURATION}: {EVENT.NAME}'
+          message: |
+            Service "{SERVICE.NAME}" has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}
+            Problem name: {EVENT.NAME}
+            Problem duration: {EVENT.DURATION}
+            Severity: {EVENT.SEVERITY}
+            Original problem ID: {EVENT.ID}
+            Service description: {SERVICE.DESCRIPTION}
+        - event_source: SERVICE
+          operation_mode: UPDATE
+          subject: 'Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} in {EVENT.AGE}'
+          message: |
+            Changed "{SERVICE.NAME}" service status to {EVENT.UPDATE.SEVERITY} at {EVENT.UPDATE.DATE} {EVENT.UPDATE.TIME}.
+            Current problem age is {EVENT.AGE}.
+            Service description: {SERVICE.DESCRIPTION}
+            
+            {SERVICE.ROOTCAUSE}

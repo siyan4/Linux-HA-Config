@@ -1,0 +1,195 @@
+zabbix_export:
+  version: '7.0'
+  host_groups:
+    - uuid: a571c0d144b14fd4a87a9d9b2aa9fcd6
+      name: Applications
+    - uuid: f2481361f99448eea617b7b1d4765566
+      name: 'Discovered hosts'
+    - uuid: dc579cd7a1a34222933f24f52a68bcd8
+      name: 'Linux servers'
+    - uuid: 6f6799aa69e844b4b3918f779f2abf08
+      name: 'Zabbix servers'
+  hosts:
+    - host: 'Zabbix Server Node0'
+      name: 'Zabbix Server Node0'
+      templates:
+        - name: 'Etcd by HTTP'
+        - name: 'HAProxy by Zabbix agent'
+        - name: 'Linux by Zabbix agent active'
+        - name: 'Nginx by Zabbix agent'
+        - name: 'PostgreSQL by Zabbix agent 2'
+        - name: 'Zabbix server health'
+      groups:
+        - name: Applications
+        - name: 'Discovered hosts'
+        - name: 'Linux servers'
+        - name: 'Zabbix servers'
+      interfaces:
+        - ip: 10.16.5.236
+          dns: zabbix0.fhtdchem.com
+          interface_ref: if1
+      inventory_mode: DISABLED
+    - host: 'Zabbix Server Node0 by Active Status Localhost - Disabled'
+      name: 'Zabbix Server Node0 by Active Status Localhost - Disabled'
+      status: DISABLED
+      templates:
+        - name: 'Etcd by HTTP'
+        - name: 'HAProxy by Zabbix agent'
+        - name: 'Linux by Zabbix agent'
+        - name: 'Nginx by Zabbix agent'
+        - name: 'PostgreSQL by Zabbix agent 2'
+        - name: 'Zabbix server health'
+      groups:
+        - name: Applications
+        - name: 'Linux servers'
+        - name: 'Zabbix servers'
+      interfaces:
+        - interface_ref: if1
+      inventory:
+        name: zabbix0
+        os: 'Linux version 6.1.0-23-amd64 (debian-kernel@lists.debian.org) (gcc-12 (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian'
+      inventory_mode: AUTOMATIC
+    - host: 'Zabbix Server Node0 by Network Interface Passive - Disabled'
+      name: 'Zabbix Server Node0 by Network Interface Passive - Disabled'
+      status: DISABLED
+      templates:
+        - name: 'Etcd by HTTP'
+        - name: 'HAProxy by Zabbix agent'
+        - name: 'Linux by Zabbix agent'
+        - name: 'Nginx by Zabbix agent'
+        - name: 'PostgreSQL by Zabbix agent 2'
+        - name: 'Zabbix server health'
+      groups:
+        - name: Applications
+        - name: 'Linux servers'
+        - name: 'Zabbix servers'
+      interfaces:
+        - ip: 10.16.5.236
+          dns: zabbix0.fhtdchem.com
+          interface_ref: if1
+      inventory:
+        name: zabbix0
+        os: 'Linux version 6.1.0-23-amd64 (debian-kernel@lists.debian.org) (gcc-12 (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian'
+      inventory_mode: AUTOMATIC
+    - host: 'Zabbix Server Node1'
+      name: 'Zabbix Server Node1'
+      templates:
+        - name: 'Etcd by HTTP'
+        - name: 'HAProxy by Zabbix agent'
+        - name: 'Linux by Zabbix agent active'
+        - name: 'Nginx by Zabbix agent'
+        - name: 'PostgreSQL by Zabbix agent 2'
+        - name: 'Zabbix server health'
+      groups:
+        - name: Applications
+        - name: 'Discovered hosts'
+        - name: 'Linux servers'
+        - name: 'Zabbix servers'
+      interfaces:
+        - ip: 10.16.5.237
+          dns: zabbix1.fhtdchem.com
+          interface_ref: if1
+      inventory_mode: DISABLED
+    - host: 'Zabbix Server Node1 by Active Status Localhost - Disabled'
+      name: 'Zabbix Server Node1 by Active Status Localhost - Disabled'
+      status: DISABLED
+      templates:
+        - name: 'Etcd by HTTP'
+        - name: 'HAProxy by Zabbix agent'
+        - name: 'Linux by Zabbix agent'
+        - name: 'Nginx by Zabbix agent'
+        - name: 'PostgreSQL by Zabbix agent 2'
+        - name: 'Zabbix server health'
+      groups:
+        - name: Applications
+        - name: 'Linux servers'
+        - name: 'Zabbix servers'
+      interfaces:
+        - interface_ref: if1
+      inventory:
+        name: zabbix0
+        os: 'Linux version 6.1.0-23-amd64 (debian-kernel@lists.debian.org) (gcc-12 (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian'
+      inventory_mode: AUTOMATIC
+    - host: 'Zabbix Server Node1 by Network Interface Passive - Disabled'
+      name: 'Zabbix Server Node1 by Network Interface Passive - Disabled'
+      status: DISABLED
+      templates:
+        - name: 'Etcd by HTTP'
+        - name: 'HAProxy by Zabbix agent'
+        - name: 'Linux by Zabbix agent'
+        - name: 'Nginx by Zabbix agent'
+        - name: 'PostgreSQL by Zabbix agent 2'
+        - name: 'Zabbix server health'
+      groups:
+        - name: Applications
+        - name: 'Linux servers'
+        - name: 'Zabbix servers'
+      interfaces:
+        - ip: 10.16.5.237
+          dns: zabbix1.fhtdchem.com
+          interface_ref: if1
+      inventory:
+        name: zabbix1
+        os: 'Linux version 6.1.0-23-amd64 (debian-kernel@lists.debian.org) (gcc-12 (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian'
+      inventory_mode: AUTOMATIC
+    - host: 'Zabbix Server Node2'
+      name: 'Zabbix Server Node2'
+      templates:
+        - name: 'Etcd by HTTP'
+        - name: 'HAProxy by Zabbix agent'
+        - name: 'Linux by Zabbix agent active'
+        - name: 'Nginx by Zabbix agent'
+        - name: 'PostgreSQL by Zabbix agent 2'
+        - name: 'Zabbix server health'
+      groups:
+        - name: Applications
+        - name: 'Discovered hosts'
+        - name: 'Linux servers'
+        - name: 'Zabbix servers'
+      interfaces:
+        - ip: 10.16.5.238
+          dns: zabbix2.fhtdchem.com
+          interface_ref: if1
+      inventory_mode: DISABLED
+    - host: 'Zabbix Server Node2 by Active Status Localhost - Disabled'
+      name: 'Zabbix Server Node2 by Active Status Localhost - Disabled'
+      status: DISABLED
+      templates:
+        - name: 'Etcd by HTTP'
+        - name: 'HAProxy by Zabbix agent'
+        - name: 'Linux by Zabbix agent'
+        - name: 'Nginx by Zabbix agent'
+        - name: 'PostgreSQL by Zabbix agent 2'
+        - name: 'Zabbix server health'
+      groups:
+        - name: Applications
+        - name: 'Linux servers'
+        - name: 'Zabbix servers'
+      interfaces:
+        - interface_ref: if1
+      inventory:
+        name: zabbix0
+        os: 'Linux version 6.1.0-23-amd64 (debian-kernel@lists.debian.org) (gcc-12 (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian'
+      inventory_mode: AUTOMATIC
+    - host: 'Zabbix Server Node2 by Network Interface Passive - Disabled'
+      name: 'Zabbix Server Node2 by Network Interface Passive - Disabled'
+      status: DISABLED
+      templates:
+        - name: 'Etcd by HTTP'
+        - name: 'HAProxy by Zabbix agent'
+        - name: 'Linux by Zabbix agent'
+        - name: 'Nginx by Zabbix agent'
+        - name: 'PostgreSQL by Zabbix agent 2'
+        - name: 'Zabbix server health'
+      groups:
+        - name: Applications
+        - name: 'Linux servers'
+        - name: 'Zabbix servers'
+      interfaces:
+        - ip: 10.16.5.238
+          dns: zabbix2.fhtdchem.com
+          interface_ref: if1
+      inventory:
+        name: zabbix2
+        os: 'Linux version 6.1.0-23-amd64 (debian-kernel@lists.debian.org) (gcc-12 (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian'
+      inventory_mode: AUTOMATIC
